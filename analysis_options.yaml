@@ -1,0 +1,9 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  # Swift Package Manager copies whole Flutter plugin packages, Dart tests and
+  # all, into build/ios/SourcePackages and build/macos/SourcePackages (the
+  # Firebase plugins first did). Analysed, their tests reported hundreds of
+  # errors after any iOS or macOS build. Nothing under build/ is ours.
+  exclude:
+    - build/**

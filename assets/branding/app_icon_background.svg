@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none"><defs><defs>
+<linearGradient id="ground" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+<stop stop-color="#26282D" />
+<stop offset="0.55" stop-color="#1B1C20" />
+<stop offset="1" stop-color="#121316" />
+</linearGradient>
+<radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 452) scale(478)">
+<stop stop-color="#3574F0" stop-opacity="0.44" />
+<stop offset="0.55" stop-color="#3574F0" stop-opacity="0.14" />
+<stop offset="1" stop-color="#3574F0" stop-opacity="0" />
+</radialGradient>
+<linearGradient id="pageBack" x1="245" y1="300" x2="600" y2="820" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5C616A" />
+<stop offset="1" stop-color="#393D44" />
+</linearGradient>
+<linearGradient id="pageFront" x1="290" y1="300" x2="650" y2="810" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7A7F89" />
+<stop offset="1" stop-color="#4B4F57" />
+</linearGradient>
+<linearGradient id="pageEdge" x1="245" y1="300" x2="650" y2="820" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B4B9C2" />
+<stop offset="1" stop-color="#61656D" />
+</linearGradient>
+<linearGradient id="rail" x1="330" y1="172" x2="730" y2="852" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EDEFF3" />
+<stop offset="0.22" stop-color="#C3C7CF" />
+<stop offset="0.46" stop-color="#8E939C" />
+<stop offset="0.72" stop-color="#D0D4DB" />
+<stop offset="1" stop-color="#6F737A" />
+</linearGradient>
+<linearGradient id="key" x1="324" y1="300" x2="331" y2="460" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B7BCC4" />
+<stop offset="1" stop-color="#7E838B" />
+</linearGradient>
+<linearGradient id="hero" x1="374" y1="242" x2="686" y2="394" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3574F0" />
+<stop offset="1" stop-color="#2B62D6" />
+</linearGradient>
+<linearGradient id="cta" x1="374" y1="756" x2="686" y2="814" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3574F0" />
+<stop offset="1" stop-color="#2B62D6" />
+</linearGradient>
+<linearGradient id="badge" x1="682" y1="186" x2="766" y2="270" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4A85F5" />
+<stop offset="1" stop-color="#2B62D6" />
+</linearGradient>
+<linearGradient id="gloss" x1="346" y1="188" x2="714" y2="836" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFFFFF" stop-opacity="0.55" />
+<stop offset="0.32" stop-color="#FFFFFF" stop-opacity="0" />
+</linearGradient>
+<clipPath id="screenClip">
+<rect x="346" y="188" width="368" height="648" rx="47" />
+</clipPath>
+</defs>
+
+
+</defs><rect width="1024" height="1024" fill="url(#ground)" />
+
+
+<circle cx="512" cy="452" r="478" fill="url(#glow)" />
+
+
+</svg>

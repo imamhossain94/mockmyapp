@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none"><defs><defs>
+<linearGradient id="ground" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+<stop stop-color="#26282D" />
+<stop offset="0.55" stop-color="#1B1C20" />
+<stop offset="1" stop-color="#121316" />
+</linearGradient>
+<radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 452) scale(478)">
+<stop stop-color="#3574F0" stop-opacity="0.44" />
+<stop offset="0.55" stop-color="#3574F0" stop-opacity="0.14" />
+<stop offset="1" stop-color="#3574F0" stop-opacity="0" />
+</radialGradient>
+<linearGradient id="pageBack" x1="245" y1="300" x2="600" y2="820" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5C616A" />
+<stop offset="1" stop-color="#393D44" />
+</linearGradient>
+<linearGradient id="pageFront" x1="290" y1="300" x2="650" y2="810" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7A7F89" />
+<stop offset="1" stop-color="#4B4F57" />
+</linearGradient>
+<linearGradient id="pageEdge" x1="245" y1="300" x2="650" y2="820" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B4B9C2" />
+<stop offset="1" stop-color="#61656D" />
+</linearGradient>
+<linearGradient id="rail" x1="330" y1="172" x2="730" y2="852" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EDEFF3" />
+<stop offset="0.22" stop-color="#C3C7CF" />
+<stop offset="0.46" stop-color="#8E939C" />
+<stop offset="0.72" stop-color="#D0D4DB" />
+<stop offset="1" stop-color="#6F737A" />
+</linearGradient>
+<linearGradient id="key" x1="324" y1="300" x2="331" y2="460" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B7BCC4" />
+<stop offset="1" stop-color="#7E838B" />
+</linearGradient>
+<linearGradient id="hero" x1="374" y1="242" x2="686" y2="394" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3574F0" />
+<stop offset="1" stop-color="#2B62D6" />
+</linearGradient>
+<linearGradient id="cta" x1="374" y1="756" x2="686" y2="814" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3574F0" />
+<stop offset="1" stop-color="#2B62D6" />
+</linearGradient>
+<linearGradient id="badge" x1="682" y1="186" x2="766" y2="270" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4A85F5" />
+<stop offset="1" stop-color="#2B62D6" />
+</linearGradient>
+<linearGradient id="gloss" x1="346" y1="188" x2="714" y2="836" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFFFFF" stop-opacity="0.55" />
+<stop offset="0.32" stop-color="#FFFFFF" stop-opacity="0" />
+</linearGradient>
+<clipPath id="screenClip">
+<rect x="346" y="188" width="368" height="648" rx="47" />
+</clipPath>
+</defs>
+
+
+</defs><g transform="translate(-32.765,-30.118) scale(1.058824)"><g transform="rotate(-17 455 560)">
+<rect x="305" y="335" width="300" height="450" rx="38" fill="url(#pageBack)" />
+<rect x="306.75" y="336.75" width="296.5" height="446.5" rx="36.25" stroke="url(#pageEdge)" stroke-width="3.5" />
+</g>
+<g transform="rotate(-8 480 552)">
+<rect x="325" y="317" width="310" height="470" rx="40" fill="url(#pageFront)" />
+<rect x="326.75" y="318.75" width="306.5" height="466.5" rx="38.25" stroke="url(#pageEdge)" stroke-width="3.5" />
+</g>
+
+
+<rect x="324" y="300" width="7" height="48" rx="3.5" fill="url(#key)" />
+<rect x="324" y="368" width="7" height="76" rx="3.5" fill="url(#key)" />
+<rect x="729" y="340" width="7" height="96" rx="3.5" fill="url(#key)" />
+
+
+<rect x="330" y="172" width="400" height="680" rx="62" fill="url(#rail)" />
+<rect x="331" y="173" width="398" height="678" rx="61" stroke="#0E0F12" stroke-opacity="0.45" stroke-width="2" />
+<rect x="338" y="180" width="384" height="664" rx="55" fill="#101114" />
+<rect x="346" y="188" width="368" height="648" rx="47" fill="#F7F8FA" />
+
+<g clip-path="url(#screenClip)">
+
+<rect x="374" y="242" width="312" height="152" rx="24" fill="url(#hero)" />
+<rect x="398" y="292" width="52" height="52" rx="16" fill="#FFFFFF" fill-opacity="0.95" />
+<path d="M416 304L442 318L416 332V304Z" fill="#2B62D6" />
+<rect x="472" y="300" width="178" height="17" rx="8.5" fill="#FFFFFF" fill-opacity="0.92" />
+<rect x="472" y="327" width="118" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.55" />
+
+<rect x="374" y="426" width="232" height="21" rx="10.5" fill="#2B2D30" />
+<rect x="374" y="460" width="300" height="15" rx="7.5" fill="#A8ADB8" />
+<rect x="374" y="485" width="216" height="15" rx="7.5" fill="#C7CAD1" />
+
+<rect x="374" y="530" width="148" height="200" rx="22" fill="#E9ECF3" />
+<rect x="388" y="544" width="120" height="118" rx="15" fill="#A9C6F8" />
+<rect x="538" y="530" width="148" height="200" rx="22" fill="#E9ECF3" />
+<rect x="552" y="544" width="120" height="118" rx="15" fill="#C6D6F6" />
+
+<rect x="374" y="756" width="312" height="58" rx="29" fill="url(#cta)" />
+<rect x="498" y="779" width="64" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.92" />
+
+<rect x="478" y="202" width="104" height="26" rx="13" fill="#101114" />
+<rect x="346" y="188" width="368" height="648" rx="47" fill="url(#gloss)" fill-opacity="0.12" />
+</g>
+
+
+<circle cx="724" cy="228" r="50" fill="url(#badge)" />
+<circle cx="724" cy="228" r="45" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="2" />
+<path d="M704 228L717 241L745 213" stroke="#FFFFFF" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+</g></svg>

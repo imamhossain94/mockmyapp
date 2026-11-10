@@ -1,0 +1,5 @@
+#include "Generated.xcconfig"
+
+// Untracked; see Signing.xcconfig.example. `#include?` so a clone
+// without one still builds.
+#include? "Signing.xcconfig"

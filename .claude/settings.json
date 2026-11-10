@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "ask": [
+      "Bash(flutter run *)",
+      "Bash(flutter install *)",
+      "Bash(flutter drive *)",
+      "Bash(flutter attach *)",
+      "Bash(flutter emulators *)",
+      "Bash(flutter -d *)",
+      "Bash(flutter --device-id*)",
+      "Bash(flutter test *integration_test*)",
+      "Bash(flutter test -d *)",
+      "Bash(flutter test * -d *)",
+      "Bash(flutter test --device-id*)",
+      "Bash(flutter test * --device-id*)",
+      "Bash(adb install*)",
+      "Bash(adb uninstall*)",
+      "Bash(adb shell*)",
+      "Bash(adb * install*)",
+      "Bash(adb * uninstall*)",
+      "Bash(adb * shell*)",
+      "Bash(xcrun simctl *)",
+      "Bash(xcrun devicectl *)",
+      "Bash(emulator *)",
+      "Bash(open *.app*)",
+      "Bash(open -a *)",
+      "Bash(*mockmyapp.exe*)",
+      "Bash(*wrangler deploy*)",
+      "Bash(*wrangler versions deploy*)",
+      "Bash(*wrangler versions upload*)",
+      "Bash(*wrangler secret*)",
+      "Bash(*wrangler rollback*)",
+      "Bash(*wrangler delete*)",
+      "Bash(git push *)",
+      "Bash(git -C * push)",
+      "Bash(git -C * push *)",
+      "Bash(git -c * push *)"
+    ]
+  }
+}

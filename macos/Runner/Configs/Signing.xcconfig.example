@@ -1,0 +1,7 @@
+// Copy to macos/Runner/Configs/Signing.xcconfig and fill in. That file is gitignored.
+//
+// Your ten-character Apple Developer Team ID — App Store Connect → Membership,
+// or `xcrun xcodebuild -showBuildSettings | grep DEVELOPMENT_TEAM` in a project
+// that already signs. Without it nothing signs, nothing archives, and StoreKit
+// testing does not run.
+DEVELOPMENT_TEAM = XXXXXXXXXX

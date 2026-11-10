@@ -1,0 +1,516 @@
+[
+ {
+  "slug": "sonary",
+  "name": "Sonary",
+  "blurb": "Jewel-tone solids, chunky white headlines",
+  "screens": [
+   {
+    "file": "01.png",
+    "bgType": "solid",
+    "bgTop": "#244A4A",
+    "bgBottom": "#244A4A",
+    "captionText": "AI Audio Editor in\nOne App",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.0937,
+    "captionLineRatio": 1.1624,
+    "captionBold": true,
+    "captionUpper": false,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0748,
+    "textBottomPct": 0.1866,
+    "hasDevice": true,
+    "deviceTopPct": 0.2339,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.8611,
+    "displayVisiblePct": 0.7722,
+    "displayType": "solid",
+    "displayTop": "#111219",
+    "displayBottom": "#111219"
+   },
+   {
+    "file": "02.png",
+    "bgType": "solid",
+    "bgTop": "#4F4A72",
+    "bgBottom": "#4F4A72",
+    "captionText": "Remove Vocals\nInstantly",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.0937,
+    "captionLineRatio": 1.1624,
+    "captionBold": true,
+    "captionUpper": false,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0748,
+    "textBottomPct": 0.1866,
+    "hasDevice": true,
+    "deviceTopPct": 0.2339,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.8611,
+    "displayVisiblePct": 0.7722,
+    "displayType": "solid",
+    "displayTop": "#1F2334",
+    "displayBottom": "#1F2334",
+    "displayImage": false
+   },
+   {
+    "file": "03.png",
+    "bgType": "solid",
+    "bgTop": "#42294F",
+    "bgBottom": "#42294F",
+    "captionText": "Flexible Music\nMixing",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.0937,
+    "captionLineRatio": 1.1624,
+    "captionBold": true,
+    "captionUpper": false,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0748,
+    "textBottomPct": 0.1866,
+    "hasDevice": true,
+    "deviceTopPct": 0.2339,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.8611,
+    "displayVisiblePct": 0.773,
+    "displayType": "solid",
+    "displayTop": "#41294F",
+    "displayBottom": "#41294F",
+    "displayImage": false
+   },
+   {
+    "file": "04.png",
+    "bgType": "solid",
+    "bgTop": "#0B4157",
+    "bgBottom": "#0B4157",
+    "captionText": "MP3 & Video\nConverter",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.0937,
+    "captionLineRatio": 1.1624,
+    "captionBold": true,
+    "captionUpper": false,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0748,
+    "textBottomPct": 0.1866,
+    "hasDevice": true,
+    "deviceTopPct": 0.2339,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.8611,
+    "displayVisiblePct": 0.773,
+    "displayType": "solid",
+    "displayTop": "#32384A",
+    "displayBottom": "#32384A",
+    "displayImage": false
+   },
+   {
+    "file": "05.png",
+    "bgType": "solid",
+    "bgTop": "#533753",
+    "bgBottom": "#533753",
+    "captionText": "Visual Audio\nEditing",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.0937,
+    "captionLineRatio": 1.1624,
+    "captionBold": true,
+    "captionUpper": false,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0748,
+    "textBottomPct": 0.1866,
+    "hasDevice": true,
+    "deviceTopPct": 0.2339,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.8611,
+    "displayVisiblePct": 0.7722,
+    "displayType": "solid",
+    "displayTop": "#1F2334",
+    "displayBottom": "#1F2334"
+   },
+   {
+    "file": "06.png",
+    "bgType": "solid",
+    "bgTop": "#3B5130",
+    "bgBottom": "#3B5130",
+    "captionText": "Seamless Audio\nMerging",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.0937,
+    "captionLineRatio": 1.1624,
+    "captionBold": true,
+    "captionUpper": false,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0748,
+    "textBottomPct": 0.1866,
+    "hasDevice": true,
+    "deviceTopPct": 0.2339,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.8611,
+    "displayVisiblePct": 0.7722,
+    "displayType": "solid",
+    "displayTop": "#1F2334",
+    "displayBottom": "#1F2334",
+    "displayImage": false
+   }
+  ],
+  "store": {
+   "package": "com.newagedevs.sonary"
+  },
+  "font": "Archivo Black",
+  "displayImages": true,
+  "shadow": {
+   "opacity": 0.5,
+   "blur": 38,
+   "offsetY": 0.012
+  },
+  "frame": {
+   "thickness": 0.0194,
+   "cornerRadius": 0.028,
+   "color": "#3F4147",
+   "screenColor": "#000000",
+   "edgeCurve": 0.0,
+   "aspect": 0.4846,
+   "punchHole": {
+    "width": 0.0419,
+    "height": 0.0419,
+    "top": 0.0409
+   },
+   "volume": {
+    "side": "left",
+    "top": 0.2548,
+    "length": 0.1068,
+    "thickness": 0.0108,
+    "count": 1
+   },
+   "power": {
+    "side": "left",
+    "top": 0.3788,
+    "length": 0.0563,
+    "thickness": 0.0108,
+    "count": 1
+   }
+  },
+  "category": "music",
+  "platforms": [
+   "android"
+  ]
+ },
+ {
+  "slug": "arrowrush",
+  "name": "Arrow Rush",
+  "blurb": "Vivid gradients, white-and-yellow block caps",
+  "screens": [
+   {
+    "file": "01.png",
+    "bgType": "gradient",
+    "bgTop": "#4A64DB",
+    "bgBottom": "#1A2E88",
+    "displayType": "gradient",
+    "displayTop": "#F5F7FE",
+    "displayBottom": "#FFFFFF",
+    "captionText": "ARROW RUSH\nFREE THEM",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.733
+   },
+   {
+    "file": "02.png",
+    "bgType": "gradient",
+    "bgTop": "#E2515E",
+    "bgBottom": "#842031",
+    "displayType": "gradient",
+    "displayTop": "#F7E9F8",
+    "displayBottom": "#F5F5FA",
+    "captionText": "SUPER LEVELS\nPACKED FULL",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.733
+   },
+   {
+    "file": "03.png",
+    "bgType": "gradient",
+    "bgTop": "#EB783B",
+    "bgBottom": "#8B3C18",
+    "displayType": "solid",
+    "displayTop": "#FBFBFC",
+    "displayBottom": "#FBFBFC",
+    "captionText": "DAILY\nCHALLENGES",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.733
+   },
+   {
+    "file": "04.png",
+    "bgType": "gradient",
+    "bgTop": "#694FDF",
+    "bgBottom": "#301E8A",
+    "displayType": "solid",
+    "displayTop": "#F8F2FB",
+    "displayBottom": "#F8F2FB",
+    "captionText": "GO THE\nDISTANCE",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.7322
+   },
+   {
+    "file": "05.png",
+    "bgType": "gradient",
+    "bgTop": "#37B69F",
+    "bgBottom": "#0C675F",
+    "displayType": "gradient",
+    "displayTop": "#B4E4E2",
+    "displayBottom": "#F7EBDF",
+    "captionText": "1000+ LEVELS\nAND CLIMBING",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.733
+   },
+   {
+    "file": "06.png",
+    "bgType": "gradient",
+    "bgTop": "#369AEB",
+    "bgBottom": "#0B5394",
+    "displayType": "solid",
+    "displayTop": "#F8F7FD",
+    "displayBottom": "#F8F7FD",
+    "captionText": "STUCK?\nGET A HINT",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.7322
+   },
+   {
+    "file": "07.png",
+    "bgType": "gradient",
+    "bgTop": "#DE4F9A",
+    "bgBottom": "#821E5B",
+    "displayType": "solid",
+    "displayTop": "#FAF7FC",
+    "displayBottom": "#FAF7FC",
+    "captionText": "UNIQUE\nMAZE SHAPES",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.7322
+   },
+   {
+    "file": "08.png",
+    "bgType": "gradient",
+    "bgTop": "#9051DE",
+    "bgBottom": "#4B208A",
+    "displayType": "solid",
+    "displayTop": "#FAF9FD",
+    "displayBottom": "#FAF9FD",
+    "captionText": "ENDLESS\nMODE",
+    "captionColor": "#FFFFFF",
+    "captionSizePct": 0.1058,
+    "captionLineRatio": 1.0242,
+    "captionBold": true,
+    "captionUpper": true,
+    "captionAlignX": 0,
+    "captionAbove": true,
+    "textTopPct": 0.0648,
+    "textBottomPct": 0.1766,
+    "hasDevice": true,
+    "deviceTopPct": 0.2346,
+    "deviceRotationDeg": 0,
+    "deviceOffsetXPct": 0,
+    "deviceWidthPct": 0.9068,
+    "lines": [
+     {
+      "color": "#FFFFFF"
+     },
+     {
+      "color": "#FFD84D"
+     }
+    ],
+    "displayVisiblePct": 0.733
+   }
+  ],
+  "store": {
+   "package": "com.newagedevs.arrow_rush"
+  },
+  "font": "Archivo Black",
+  "displayImages": true,
+  "shadow": {
+   "opacity": 0.3,
+   "blur": 44,
+   "offsetY": 0.008
+  },
+  "frame": {
+   "thickness": 0.0213,
+   "cornerRadius": 0.0929,
+   "color": "#4C4C51",
+   "screenColor": "#04050A",
+   "edgeCurve": 0.55,
+   "aspect": 0.4846,
+   "punchHole": {
+    "width": 0.0418,
+    "height": 0.0418,
+    "top": 0.0231
+   },
+   "volume": {
+    "side": "right",
+    "top": 0.2153,
+    "length": 0.1202,
+    "thickness": 0.0109,
+    "count": 1
+   },
+   "power": {
+    "side": "right",
+    "top": 0.3563,
+    "length": 0.0628,
+    "thickness": 0.0108,
+    "count": 1
+   }
+  },
+  "category": "games",
+  "platforms": [
+   "android"
+  ]
+ }
+]

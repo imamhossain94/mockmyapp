@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "generatedBy": "generate_clipart.py",
+  "stickers": [
+    {
+      "id": "arrow-right",
+      "name": "Straight",
+      "category": "Arrows",
+      "tintable": true,
+      "asset": "assets/clipart/arrows/arrow-right.svg"
+    },
+    {
+      "id": "arrow-curved",
+      "name": "Curved",
+      "category": "Arrows",
+      "tintable": true,
+      "asset": "assets/clipart/arrows/arrow-curved.svg"
+    },
+    {
+      "id": "arrow-sketch",
+      "name": "Sketched",
+      "category": "Arrows",
+      "tintable": true,
+      "asset": "assets/clipart/arrows/arrow-sketch.svg"
+    },
+    {
+      "id": "arrow-chunky",
+      "name": "Chunky",
+      "category": "Arrows",
+      "tintable": false,
+      "asset": "assets/clipart/arrows/arrow-chunky.svg"
+    },
+    {
+      "id": "arrow-double",
+      "name": "Two ways",
+      "category": "Arrows",
+      "tintable": true,
+      "asset": "assets/clipart/arrows/arrow-double.svg"
+    },
+    {
+      "id": "arrow-corner",
+      "name": "Elbow",
+      "category": "Arrows",
+      "tintable": true,
+      "asset": "assets/clipart/arrows/arrow-corner.svg"
+    },
+    {
+      "id": "bubble-round",
+      "name": "Speech",
+      "category": "Speech",
+      "tintable": false,
+      "asset": "assets/clipart/speech/bubble-round.svg"
+    },
+    {
+      "id": "bubble-square",
+      "name": "Note",
+      "category": "Speech",
+      "tintable": false,
+      "asset": "assets/clipart/speech/bubble-square.svg"
+    },
+    {
+      "id": "bubble-thought",
+      "name": "Thought",
+      "category": "Speech",
+      "tintable": false,
+      "asset": "assets/clipart/speech/bubble-thought.svg"
+    },
+    {
+      "id": "bubble-burst",
+      "name": "Comic",
+      "category": "Speech",
+      "tintable": false,
+      "asset": "assets/clipart/speech/bubble-burst.svg"
+    },
+    {
+      "id": "bubble-tag",
+      "name": "Aside",
+      "category": "Speech",
+      "tintable": false,
+      "asset": "assets/clipart/speech/bubble-tag.svg"
+    },
+    {
+      "id": "badge-star",
+      "name": "Star badge",
+      "category": "Badges",
+      "tintable": false,
+      "asset": "assets/clipart/badges/badge-star.svg"
+    },
+    {
+      "id": "badge-seal",
+      "name": "Seal",
+      "category": "Badges",
+      "tintable": false,
+      "asset": "assets/clipart/badges/badge-seal.svg"
+    },
+    {
+      "id": "badge-new",
+      "name": "New tag",
+      "category": "Badges",
+      "tintable": false,
+      "asset": "assets/clipart/badges/badge-new.svg"
+    },
+    {
+      "id": "badge-ribbon",
+      "name": "Ribbon",
+      "category": "Badges",
+      "tintable": false,
+      "asset": "assets/clipart/badges/badge-ribbon.svg"
+    },
+    {
+      "id": "badge-price",
+      "name": "Price tag",
+      "category": "Badges",
+      "tintable": false,
+      "asset": "assets/clipart/badges/badge-price.svg"
+    },
+    {
+      "id": "badge-check",
+      "name": "Approved",
+      "category": "Badges",
+      "tintable": false,
+      "asset": "assets/clipart/badges/badge-check.svg"
+    },
+    {
+      "id": "burst-star",
+      "name": "Starburst",
+      "category": "Bursts",
+      "tintable": false,
+      "asset": "assets/clipart/bursts/burst-star.svg"
+    },
+    {
+      "id": "burst-sparkle",
+      "name": "Sparkle",
+      "category": "Bursts",
+      "tintable": true,
+      "asset": "assets/clipart/bursts/burst-sparkle.svg"
+    },
+    {
+      "id": "burst-twinkle",
+      "name": "Twinkle",
+      "category": "Bursts",
+      "tintable": true,
+      "asset": "assets/clipart/bursts/burst-twinkle.svg"
+    },
+    {
+      "id": "burst-sun",
+      "name": "Rays",
+      "category": "Bursts",
+      "tintable": false,
+      "asset": "assets/clipart/bursts/burst-sun.svg"
+    },
+    {
+      "id": "burst-flash",
+      "name": "Bolt",
+      "category": "Bursts",
+      "tintable": true,
+      "asset": "assets/clipart/bursts/burst-flash.svg"
+    },
+    {
+      "id": "accent-squiggle",
+      "name": "Squiggle",
+      "category": "Accents",
+      "tintable": true,
+      "asset": "assets/clipart/accents/accent-squiggle.svg"
+    },
+    {
+      "id": "accent-underline",
+      "name": "Underline",
+      "category": "Accents",
+      "tintable": true,
+      "asset": "assets/clipart/accents/accent-underline.svg"
+    },
+    {
+      "id": "accent-dots",
+      "name": "Dots",
+      "category": "Accents",
+      "tintable": true,
+      "asset": "assets/clipart/accents/accent-dots.svg"
+    },
+    {
+      "id": "accent-confetti",
+      "name": "Confetti",
+      "category": "Accents",
+      "tintable": false,
+      "asset": "assets/clipart/accents/accent-confetti.svg"
+    },
+    {
+      "id": "accent-zigzag",
+      "name": "Zigzag",
+      "category": "Accents",
+      "tintable": true,
+      "asset": "assets/clipart/accents/accent-zigzag.svg"
+    },
+    {
+      "id": "accent-heart",
+      "name": "Heart",
+      "category": "Accents",
+      "tintable": true,
+      "asset": "assets/clipart/accents/accent-heart.svg"
+    },
+    {
+      "id": "mark-check",
+      "name": "Check",
+      "category": "Marks",
+      "tintable": false,
+      "asset": "assets/clipart/marks/mark-check.svg"
+    },
+    {
+      "id": "mark-cross",
+      "name": "Cross",
+      "category": "Marks",
+      "tintable": false,
+      "asset": "assets/clipart/marks/mark-cross.svg"
+    },
+    {
+      "id": "mark-plus",
+      "name": "Plus",
+      "category": "Marks",
+      "tintable": false,
+      "asset": "assets/clipart/marks/mark-plus.svg"
+    },
+    {
+      "id": "mark-exclaim",
+      "name": "Warning",
+      "category": "Marks",
+      "tintable": false,
+      "asset": "assets/clipart/marks/mark-exclaim.svg"
+    },
+    {
+      "id": "mark-question",
+      "name": "Question",
+      "category": "Marks",
+      "tintable": false,
+      "asset": "assets/clipart/marks/mark-question.svg"
+    },
+    {
+      "id": "emoji-fire",
+      "name": "Fire",
+      "category": "Figures",
+      "tintable": false,
+      "asset": "assets/clipart/figures/emoji-fire.svg"
+    },
+    {
+      "id": "emoji-crown",
+      "name": "Crown",
+      "category": "Figures",
+      "tintable": false,
+      "asset": "assets/clipart/figures/emoji-crown.svg"
+    },
+    {
+      "id": "emoji-thumb",
+      "name": "Thumbs up",
+      "category": "Figures",
+      "tintable": false,
+      "asset": "assets/clipart/figures/emoji-thumb.svg"
+    },
+    {
+      "id": "emoji-sparkle-heart",
+      "name": "Loved",
+      "category": "Figures",
+      "tintable": false,
+      "asset": "assets/clipart/figures/emoji-sparkle-heart.svg"
+    }
+  ]
+}

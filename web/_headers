@@ -1,0 +1,17 @@
+# Response headers for hosts that read a `_headers` file (Cloudflare Pages
+# and Workers static assets, Netlify). `flutter build web` copies it into
+# build/web; such a host reads it and never serves it, and any other host
+# simply ignores it.
+#
+# The app makes no requests of its own, opens no popups and embeds nothing,
+# so the strictest opener policy costs nothing. There is no
+# Cross-Origin-Embedder-Policy: multi-threaded Wasm wants it, and
+# single-threaded rendering is fine for an editor.
+#
+# No Cache-Control rule: Flutter's file names carry no content hash, so the
+# host's default revalidation is what keeps a new build from hiding behind a
+# stale main.dart.js.
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer

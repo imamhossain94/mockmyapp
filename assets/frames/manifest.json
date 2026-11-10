@@ -1,0 +1,1526 @@
+{
+  "schema": 2,
+  "generatedBy": "generate_samsung_frames.py + generate_other_brand_frames.py",
+  "devices": [
+    {
+      "id": "google-pixel-8-pro",
+      "brand": "Google",
+      "series": "Pixel 8",
+      "model": "Pixel 8 Pro",
+      "platform": "android",
+      "releaseYear": 2023,
+      "screenAspect": 0.4491,
+      "frameAspect": 0.4794,
+      "screenRect": {
+        "x": 0.0605,
+        "y": 0.0308,
+        "w": 0.8789,
+        "h": 0.9383
+      },
+      "cornerRadiusPct": 0.062,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black",
+          "name": "Black",
+          "asset": "assets/frames/google/Pixel 8 Pro/SVG/Pixel 8 Pro Black.svg",
+          "frameColor": "#434547"
+        },
+        {
+          "id": "blue",
+          "name": "Blue",
+          "asset": "assets/frames/google/Pixel 8 Pro/SVG/Pixel 8 Pro Blue.svg",
+          "frameColor": "#7BA2BC"
+        },
+        {
+          "id": "silver",
+          "name": "Silver",
+          "asset": "assets/frames/google/Pixel 8 Pro/SVG/Pixel 8 Pro Silver.svg",
+          "frameColor": "#9A9C9E"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0164,
+        "y": 0.0079,
+        "w": 0.9672,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4799,
+        "y": 0.0443,
+        "w": 0.0402,
+        "h": 0.02
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.3207,
+          "length": 0.0607,
+          "protrusion": 0.0104
+        },
+        {
+          "side": "right",
+          "top": 0.4286,
+          "length": 0.1221,
+          "protrusion": 0.0104
+        }
+      ]
+    },
+    {
+      "id": "google-pixel-9-pro",
+      "brand": "Google",
+      "series": "Pixel 9",
+      "model": "Pixel 9 Pro",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4479,
+      "frameAspect": 0.4807,
+      "screenRect": {
+        "x": 0.0628,
+        "y": 0.0308,
+        "w": 0.8743,
+        "h": 0.9383
+      },
+      "cornerRadiusPct": 0.1358,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "hazel",
+          "name": "Hazel",
+          "asset": "assets/frames/google/Pixel 9 Pro/SVG/Pixel 9 Pro Hazel.svg",
+          "frameColor": "#7F8784"
+        },
+        {
+          "id": "obsidian",
+          "name": "Obsidian",
+          "asset": "assets/frames/google/Pixel 9 Pro/SVG/Pixel 9 Pro Obsidian.svg",
+          "frameColor": "#4A4C4F"
+        },
+        {
+          "id": "rose-quartz",
+          "name": "Rose Quartz",
+          "asset": "assets/frames/google/Pixel 9 Pro/SVG/Pixel 9 Pro Rose Quartz.svg",
+          "frameColor": "#A68F96"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0178,
+        "y": 0.0086,
+        "w": 0.9643,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.477,
+        "y": 0.0514,
+        "w": 0.0461,
+        "h": 0.0229
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.2764,
+          "length": 0.0779,
+          "protrusion": 0.0104
+        },
+        {
+          "side": "right",
+          "top": 0.3979,
+          "length": 0.14,
+          "protrusion": 0.0104
+        }
+      ]
+    },
+    {
+      "id": "google-pixel-9-pro-xl",
+      "brand": "Google",
+      "series": "Pixel 9",
+      "model": "Pixel 9 Pro XL",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.451,
+      "frameAspect": 0.4795,
+      "screenRect": {
+        "x": 0.0542,
+        "y": 0.026,
+        "w": 0.8917,
+        "h": 0.9481
+      },
+      "cornerRadiusPct": 0.1322,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "hazel",
+          "name": "Hazel",
+          "asset": "assets/frames/google/Pixel 9 Pro XL/SVG/Pixel 9 Pro XL Hazel.svg",
+          "frameColor": "#7F8784"
+        },
+        {
+          "id": "obsidian",
+          "name": "Obsidian",
+          "asset": "assets/frames/google/Pixel 9 Pro XL/SVG/Pixel 9 Pro XL Obsidian.svg",
+          "frameColor": "#4A4C4F"
+        },
+        {
+          "id": "rose-quartz",
+          "name": "Rose Quartz",
+          "asset": "assets/frames/google/Pixel 9 Pro XL/SVG/Pixel 9 Pro XL Rose Quartz.svg",
+          "frameColor": "#A68F96"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0164,
+        "y": 0.0079,
+        "w": 0.9672,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4784,
+        "y": 0.0471,
+        "w": 0.0432,
+        "h": 0.0207
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.2714,
+          "length": 0.0679,
+          "protrusion": 0.0104
+        },
+        {
+          "side": "right",
+          "top": 0.3843,
+          "length": 0.1286,
+          "protrusion": 0.0104
+        }
+      ]
+    },
+    {
+      "id": "motorola-edge-50-ultra",
+      "brand": "Motorola",
+      "series": "Edge 50",
+      "model": "Edge 50 Ultra",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4396,
+      "frameAspect": 0.4588,
+      "screenRect": {
+        "x": 0.0398,
+        "y": 0.0186,
+        "w": 0.9204,
+        "h": 0.9606
+      },
+      "cornerRadiusPct": 0.111,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "peach-fuzz",
+          "name": "Peach Fuzz",
+          "asset": "assets/frames/motorola/Edge 50 Ultra/SVG/Edge 50 Ultra Peach Fuzz.svg",
+          "frameColor": "#CC9A8A"
+        },
+        {
+          "id": "nordic-wood",
+          "name": "Nordic Wood",
+          "asset": "assets/frames/motorola/Edge 50 Ultra/SVG/Edge 50 Ultra Nordic Wood.svg",
+          "frameColor": "#B89A78"
+        },
+        {
+          "id": "midnight-blue",
+          "name": "Midnight Blue",
+          "asset": "assets/frames/motorola/Edge 50 Ultra/SVG/Edge 50 Ultra Midnight Blue.svg",
+          "frameColor": "#101830"
+        },
+        {
+          "id": "starlight-blue",
+          "name": "Starlight Blue",
+          "asset": "assets/frames/motorola/Edge 50 Ultra/SVG/Edge 50 Ultra Starlight Blue.svg",
+          "frameColor": "#2C4888"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0187,
+        "y": 0.0086,
+        "w": 0.9642,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.4798,
+        "y": 0.0286,
+        "w": 0.0405,
+        "h": 0.0193
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0109
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0109
+        }
+      ]
+    },
+    {
+      "id": "nothing-phone-2",
+      "brand": "Nothing",
+      "series": "Nothing Phone",
+      "model": "Nothing Phone (2)",
+      "platform": "android",
+      "releaseYear": 2023,
+      "screenAspect": 0.4478,
+      "frameAspect": 0.4803,
+      "screenRect": {
+        "x": 0.0612,
+        "y": 0.0273,
+        "w": 0.8775,
+        "h": 0.9412
+      },
+      "cornerRadiusPct": 0.0927,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black",
+          "name": "Black",
+          "asset": "assets/frames/nothing/Nothing Phone 2/SVG/Nothing Phone (2) Black.svg",
+          "frameColor": "#1A1A1A"
+        },
+        {
+          "id": "white",
+          "name": "White",
+          "asset": "assets/frames/nothing/Nothing Phone 2/SVG/Nothing Phone (2) White.svg",
+          "frameColor": "#EEEEEE"
+        },
+        {
+          "id": "dark-gray",
+          "name": "Dark Gray",
+          "asset": "assets/frames/nothing/Nothing Phone 2/SVG/Nothing Phone (2) Dark Gray.svg",
+          "frameColor": "#282828"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0164,
+        "y": 0.0086,
+        "w": 0.9673,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.4807,
+        "y": 0.04,
+        "w": 0.0387,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "left",
+          "top": 0.205,
+          "length": 0.1136,
+          "protrusion": 0.0089
+        },
+        {
+          "side": "right",
+          "top": 0.2193,
+          "length": 0.06,
+          "protrusion": 0.0104
+        }
+      ]
+    },
+    {
+      "id": "nothing-phone-3a",
+      "brand": "Nothing",
+      "series": "Nothing Phone",
+      "model": "Nothing Phone (3a)",
+      "platform": "android",
+      "releaseYear": 2025,
+      "screenAspect": 0.4518,
+      "frameAspect": 0.4829,
+      "screenRect": {
+        "x": 0.0592,
+        "y": 0.026,
+        "w": 0.8817,
+        "h": 0.9423
+      },
+      "cornerRadiusPct": 0.0887,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black",
+          "name": "Black",
+          "asset": "assets/frames/nothing/Nothing Phone 3a/SVG/Nothing Phone (3a) Black.svg",
+          "frameColor": "#1A1A1A"
+        },
+        {
+          "id": "white",
+          "name": "White",
+          "asset": "assets/frames/nothing/Nothing Phone 3a/SVG/Nothing Phone (3a) White.svg",
+          "frameColor": "#EEEEEE"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0163,
+        "y": 0.0079,
+        "w": 0.9675,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4808,
+        "y": 0.0386,
+        "w": 0.0385,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "left",
+          "top": 0.205,
+          "length": 0.1136,
+          "protrusion": 0.0089
+        },
+        {
+          "side": "right",
+          "top": 0.2193,
+          "length": 0.06,
+          "protrusion": 0.0089
+        }
+      ]
+    },
+    {
+      "id": "oneplus-12",
+      "brand": "OnePlus",
+      "series": "OnePlus 12",
+      "model": "OnePlus 12",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.454,
+      "frameAspect": 0.4704,
+      "screenRect": {
+        "x": 0.0366,
+        "y": 0.0185,
+        "w": 0.9268,
+        "h": 0.9603
+      },
+      "cornerRadiusPct": 0.1211,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "flowy-emerald",
+          "name": "Flowy Emerald",
+          "asset": "assets/frames/oneplus/OnePlus 12/SVG/OnePlus 12 Flowy Emerald.svg",
+          "frameColor": "#29503A"
+        },
+        {
+          "id": "silky-black",
+          "name": "Silky Black",
+          "asset": "assets/frames/oneplus/OnePlus 12/SVG/OnePlus 12 Silky Black.svg",
+          "frameColor": "#262626"
+        },
+        {
+          "id": "glacial-white",
+          "name": "Glacial White",
+          "asset": "assets/frames/oneplus/OnePlus 12/SVG/OnePlus 12 Glacial White.svg",
+          "frameColor": "#E2EBF0"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0167,
+        "y": 0.0079,
+        "w": 0.9651,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4795,
+        "y": 0.0307,
+        "w": 0.0395,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "left",
+          "top": 0.175,
+          "length": 0.0364,
+          "protrusion": 0.0091
+        },
+        {
+          "side": "right",
+          "top": 0.2093,
+          "length": 0.1143,
+          "protrusion": 0.0106
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0106
+        }
+      ]
+    },
+    {
+      "id": "oneplus-13",
+      "brand": "OnePlus",
+      "series": "OnePlus 13",
+      "model": "OnePlus 13",
+      "platform": "android",
+      "releaseYear": 2025,
+      "screenAspect": 0.4602,
+      "frameAspect": 0.4786,
+      "screenRect": {
+        "x": 0.0376,
+        "y": 0.0178,
+        "w": 0.9247,
+        "h": 0.9618
+      },
+      "cornerRadiusPct": 0.1158,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "midnight-ocean",
+          "name": "Midnight Ocean",
+          "asset": "assets/frames/oneplus/OnePlus 13/SVG/OnePlus 13 Midnight Ocean.svg",
+          "frameColor": "#182538"
+        },
+        {
+          "id": "arctic-dawn",
+          "name": "Arctic Dawn",
+          "asset": "assets/frames/oneplus/OnePlus 13/SVG/OnePlus 13 Arctic Dawn.svg",
+          "frameColor": "#EBEBEB"
+        },
+        {
+          "id": "emerald-dusk",
+          "name": "Emerald Dusk",
+          "asset": "assets/frames/oneplus/OnePlus 13/SVG/OnePlus 13 Emerald Dusk.svg",
+          "frameColor": "#192A1E"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0164,
+        "y": 0.0079,
+        "w": 0.9672,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4806,
+        "y": 0.0307,
+        "w": 0.0388,
+        "h": 0.0179
+      },
+      "keys": [
+        {
+          "side": "left",
+          "top": 0.175,
+          "length": 0.0364,
+          "protrusion": 0.009
+        },
+        {
+          "side": "right",
+          "top": 0.2093,
+          "length": 0.1143,
+          "protrusion": 0.009
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.009
+        }
+      ]
+    },
+    {
+      "id": "oppo-find-x7-ultra",
+      "brand": "OPPO",
+      "series": "Find X7",
+      "model": "Find X7 Ultra",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4547,
+      "frameAspect": 0.4728,
+      "screenRect": {
+        "x": 0.0382,
+        "y": 0.0187,
+        "w": 0.9235,
+        "h": 0.9603
+      },
+      "cornerRadiusPct": 0.0754,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black",
+          "name": "Black",
+          "asset": "assets/frames/oppo/Find X7 Ultra/SVG/Find X7 Ultra Black.svg",
+          "frameColor": "#202028"
+        },
+        {
+          "id": "white",
+          "name": "White",
+          "asset": "assets/frames/oppo/Find X7 Ultra/SVG/Find X7 Ultra White.svg",
+          "frameColor": "#E8E4E0"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0166,
+        "y": 0.0079,
+        "w": 0.9668,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4804,
+        "y": 0.03,
+        "w": 0.0393,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.2093,
+          "length": 0.1143,
+          "protrusion": 0.0091
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0091
+        }
+      ]
+    },
+    {
+      "id": "oppo-find-x8-pro",
+      "brand": "OPPO",
+      "series": "Find X8",
+      "model": "Find X8 Pro",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4623,
+      "frameAspect": 0.4815,
+      "screenRect": {
+        "x": 0.038,
+        "y": 0.0178,
+        "w": 0.924,
+        "h": 0.9624
+      },
+      "cornerRadiusPct": 0.0738,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "space-black",
+          "name": "Space Black",
+          "asset": "assets/frames/oppo/Find X8 Pro/SVG/Find X8 Pro Space Black.svg",
+          "frameColor": "#202028"
+        },
+        {
+          "id": "pearl-white",
+          "name": "Pearl White",
+          "asset": "assets/frames/oppo/Find X8 Pro/SVG/Find X8 Pro Pearl White.svg",
+          "frameColor": "#E8E4E0"
+        },
+        {
+          "id": "ocean-blue",
+          "name": "Ocean Blue",
+          "asset": "assets/frames/oppo/Find X8 Pro/SVG/Find X8 Pro Ocean Blue.svg",
+          "frameColor": "#1C3260"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0163,
+        "y": 0.0079,
+        "w": 0.9674,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4807,
+        "y": 0.0279,
+        "w": 0.0386,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0104
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0104
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-note-10",
+      "brand": "Samsung",
+      "series": "Galaxy Note",
+      "model": "Galaxy Note 10",
+      "platform": "android",
+      "releaseYear": 2019,
+      "screenAspect": 0.4745,
+      "frameAspect": 0.485,
+      "screenRect": {
+        "x": 0.0316,
+        "y": 0.0188,
+        "w": 0.9368,
+        "h": 0.9577
+      },
+      "cornerRadiusPct": 0.0458,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "aura-glow",
+          "name": "Aura Glow",
+          "asset": "assets/frames/samsung/Galaxy Note 10/SVG/Samsung Galaxy Note 10 Aura Glow.svg",
+          "frameColor": "#CBD6E4"
+        },
+        {
+          "id": "aura-black",
+          "name": "Aura Black",
+          "asset": "assets/frames/samsung/Galaxy Note 10/SVG/Samsung Galaxy Note 10 Aura Black.svg",
+          "frameColor": "#3A3C42"
+        },
+        {
+          "id": "aura-white",
+          "name": "Aura White",
+          "asset": "assets/frames/samsung/Galaxy Note 10/SVG/Samsung Galaxy Note 10 Aura White.svg",
+          "frameColor": "#F1F2F4"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0177,
+        "y": 0.0086,
+        "w": 0.9647,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.4801,
+        "y": 0.0393,
+        "w": 0.0398,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "left",
+          "top": 0.2543,
+          "length": 0.1036,
+          "protrusion": 0.0103
+        },
+        {
+          "side": "left",
+          "top": 0.3743,
+          "length": 0.0543,
+          "protrusion": 0.0103
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-note-10-plus",
+      "brand": "Samsung",
+      "series": "Galaxy Note",
+      "model": "Galaxy Note 10+",
+      "platform": "android",
+      "releaseYear": 2019,
+      "screenAspect": 0.474,
+      "frameAspect": 0.4846,
+      "screenRect": {
+        "x": 0.0298,
+        "y": 0.0172,
+        "w": 0.9404,
+        "h": 0.9613
+      },
+      "cornerRadiusPct": 0.0425,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "aura-glow",
+          "name": "Aura Glow",
+          "asset": "assets/frames/samsung/Galaxy Note 10 Plus/SVG/Samsung Galaxy Note 10+ Aura Glow.svg",
+          "frameColor": "#CBD6E4"
+        },
+        {
+          "id": "aura-black",
+          "name": "Aura Black",
+          "asset": "assets/frames/samsung/Galaxy Note 10 Plus/SVG/Samsung Galaxy Note 10+ Aura Black.svg",
+          "frameColor": "#3A3C42"
+        },
+        {
+          "id": "aura-white",
+          "name": "Aura White",
+          "asset": "assets/frames/samsung/Galaxy Note 10 Plus/SVG/Samsung Galaxy Note 10+ Aura White.svg",
+          "frameColor": "#F1F2F4"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0162,
+        "y": 0.0079,
+        "w": 0.9676,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4808,
+        "y": 0.0371,
+        "w": 0.0383,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "left",
+          "top": 0.2543,
+          "length": 0.1036,
+          "protrusion": 0.0088
+        },
+        {
+          "side": "left",
+          "top": 0.3736,
+          "length": 0.055,
+          "protrusion": 0.0088
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-note-20",
+      "brand": "Samsung",
+      "series": "Galaxy Note",
+      "model": "Galaxy Note 20",
+      "platform": "android",
+      "releaseYear": 2020,
+      "screenAspect": 0.4565,
+      "frameAspect": 0.4745,
+      "screenRect": {
+        "x": 0.038,
+        "y": 0.0198,
+        "w": 0.9239,
+        "h": 0.9604
+      },
+      "cornerRadiusPct": 0.04,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "mystic-bronze",
+          "name": "Mystic Bronze",
+          "asset": "assets/frames/samsung/Galaxy Note 20/SVG/Samsung Galaxy Note 20 Mystic Bronze.svg",
+          "frameColor": "#CFA88D"
+        },
+        {
+          "id": "mystic-green",
+          "name": "Mystic Green",
+          "asset": "assets/frames/samsung/Galaxy Note 20/SVG/Samsung Galaxy Note 20 Mystic Green.svg",
+          "frameColor": "#93A698"
+        },
+        {
+          "id": "mystic-gray",
+          "name": "Mystic Gray",
+          "asset": "assets/frames/samsung/Galaxy Note 20/SVG/Samsung Galaxy Note 20 Mystic Gray.svg",
+          "frameColor": "#9EA1A6"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0166,
+        "y": 0.0086,
+        "w": 0.9669,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.4804,
+        "y": 0.0321,
+        "w": 0.0392,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0105
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0105
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-note-20-ultra",
+      "brand": "Samsung",
+      "series": "Galaxy Note",
+      "model": "Galaxy Note 20 Ultra",
+      "platform": "android",
+      "releaseYear": 2020,
+      "screenAspect": 0.4732,
+      "frameAspect": 0.4773,
+      "screenRect": {
+        "x": 0.0247,
+        "y": 0.0193,
+        "w": 0.9506,
+        "h": 0.9589
+      },
+      "cornerRadiusPct": 0.0337,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "mystic-bronze",
+          "name": "Mystic Bronze",
+          "asset": "assets/frames/samsung/Galaxy Note 20 Ultra/SVG/Samsung Galaxy Note 20 Ultra Mystic Bronze.svg",
+          "frameColor": "#CFA88D"
+        },
+        {
+          "id": "mystic-black",
+          "name": "Mystic Black",
+          "asset": "assets/frames/samsung/Galaxy Note 20 Ultra/SVG/Samsung Galaxy Note 20 Ultra Mystic Black.svg",
+          "frameColor": "#323436"
+        },
+        {
+          "id": "mystic-white",
+          "name": "Mystic White",
+          "asset": "assets/frames/samsung/Galaxy Note 20 Ultra/SVG/Samsung Galaxy Note 20 Ultra Mystic White.svg",
+          "frameColor": "#E8EAEE"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0165,
+        "y": 0.0079,
+        "w": 0.9671,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.482,
+        "y": 0.0371,
+        "w": 0.0359,
+        "h": 0.0171
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.2093,
+          "length": 0.1143,
+          "protrusion": 0.0105
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0105
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-s24-ultra",
+      "brand": "Samsung",
+      "series": "Galaxy S",
+      "model": "Galaxy S24 Ultra",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4758,
+      "frameAspect": 0.4955,
+      "screenRect": {
+        "x": 0.0373,
+        "y": 0.0181,
+        "w": 0.9254,
+        "h": 0.9637
+      },
+      "cornerRadiusPct": 0.0275,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "titanium-gray",
+          "name": "Titanium Gray",
+          "asset": "assets/frames/samsung/Galaxy S24 Ultra/SVG/Samsung Galaxy S24 Ultra Titanium Gray.svg",
+          "frameColor": "#A2A19D"
+        },
+        {
+          "id": "titanium-black",
+          "name": "Titanium Black",
+          "asset": "assets/frames/samsung/Galaxy S24 Ultra/SVG/Samsung Galaxy S24 Ultra Titanium Black.svg",
+          "frameColor": "#3D3D40"
+        },
+        {
+          "id": "titanium-violet",
+          "name": "Titanium Violet",
+          "asset": "assets/frames/samsung/Galaxy S24 Ultra/SVG/Samsung Galaxy S24 Ultra Titanium Violet.svg",
+          "frameColor": "#8B84A0"
+        },
+        {
+          "id": "titanium-yellow",
+          "name": "Titanium Yellow",
+          "asset": "assets/frames/samsung/Galaxy S24 Ultra/SVG/Samsung Galaxy S24 Ultra Titanium Yellow.svg",
+          "frameColor": "#D3BC82"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0159,
+        "y": 0.0079,
+        "w": 0.9669,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4798,
+        "y": 0.0321,
+        "w": 0.0403,
+        "h": 0.02
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0101
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0101
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-s25",
+      "brand": "Samsung",
+      "series": "Galaxy S",
+      "model": "Galaxy S25",
+      "platform": "android",
+      "releaseYear": 2025,
+      "screenAspect": 0.4635,
+      "frameAspect": 0.4896,
+      "screenRect": {
+        "x": 0.0498,
+        "y": 0.0244,
+        "w": 0.9004,
+        "h": 0.9512
+      },
+      "cornerRadiusPct": 0.1012,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "navy",
+          "name": "Navy",
+          "asset": "assets/frames/samsung/Galaxy S25/SVG/Samsung Galaxy S25 Navy.svg",
+          "frameColor": "#3E5074"
+        },
+        {
+          "id": "silver-shadow",
+          "name": "Silver Shadow",
+          "asset": "assets/frames/samsung/Galaxy S25/SVG/Samsung Galaxy S25 Silver Shadow.svg",
+          "frameColor": "#C9CCD1"
+        },
+        {
+          "id": "icy-blue",
+          "name": "Icy Blue",
+          "asset": "assets/frames/samsung/Galaxy S25/SVG/Samsung Galaxy S25 Icy Blue.svg",
+          "frameColor": "#BFD8E9"
+        },
+        {
+          "id": "mint",
+          "name": "Mint",
+          "asset": "assets/frames/samsung/Galaxy S25/SVG/Samsung Galaxy S25 Mint.svg",
+          "frameColor": "#BCE0CE"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.019,
+        "y": 0.0093,
+        "w": 0.9621,
+        "h": 0.9814
+      },
+      "cutoutRect": {
+        "x": 0.4781,
+        "y": 0.0364,
+        "w": 0.0423,
+        "h": 0.0214
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0102
+        },
+        {
+          "side": "right",
+          "top": 0.3429,
+          "length": 0.0593,
+          "protrusion": 0.0102
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-s26",
+      "brand": "Samsung",
+      "series": "Galaxy S",
+      "model": "Galaxy S26",
+      "platform": "android",
+      "releaseYear": 2026,
+      "screenAspect": 0.4651,
+      "frameAspect": 0.4895,
+      "screenRect": {
+        "x": 0.0431,
+        "y": 0.0192,
+        "w": 0.9138,
+        "h": 0.9616
+      },
+      "cornerRadiusPct": 0.1095,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "titanium-black",
+          "name": "Titanium Black",
+          "asset": "assets/frames/samsung/Galaxy S26/SVG/Samsung Galaxy S26 Titanium Black.svg",
+          "frameColor": "#3D3D40"
+        },
+        {
+          "id": "titanium-silver",
+          "name": "Titanium Silver",
+          "asset": "assets/frames/samsung/Galaxy S26/SVG/Samsung Galaxy S26 Titanium Silver.svg",
+          "frameColor": "#CBCDD2"
+        },
+        {
+          "id": "icy-blue",
+          "name": "Icy Blue",
+          "asset": "assets/frames/samsung/Galaxy S26/SVG/Samsung Galaxy S26 Icy Blue.svg",
+          "frameColor": "#BFD8E9"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0175,
+        "y": 0.0093,
+        "w": 0.965,
+        "h": 0.9814
+      },
+      "cutoutRect": {
+        "x": 0.4803,
+        "y": 0.0307,
+        "w": 0.0394,
+        "h": 0.0193
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0102
+        },
+        {
+          "side": "right",
+          "top": 0.3429,
+          "length": 0.0593,
+          "protrusion": 0.0102
+        }
+      ]
+    },
+    {
+      "id": "samsung-galaxy-s26-ultra",
+      "brand": "Samsung",
+      "series": "Galaxy S",
+      "model": "Galaxy S26 Ultra",
+      "platform": "android",
+      "releaseYear": 2026,
+      "screenAspect": 0.4679,
+      "frameAspect": 0.4862,
+      "screenRect": {
+        "x": 0.0347,
+        "y": 0.0165,
+        "w": 0.9305,
+        "h": 0.9669
+      },
+      "cornerRadiusPct": 0.0807,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black",
+          "name": "Black",
+          "asset": "assets/frames/samsung/Galaxy S26 Ultra/SVG/Samsung Galaxy S26 Ultra Black.svg",
+          "frameColor": "#35373B"
+        },
+        {
+          "id": "cobalt-violet",
+          "name": "Cobalt Violet",
+          "asset": "assets/frames/samsung/Galaxy S26 Ultra/SVG/Samsung Galaxy S26 Ultra Cobalt Violet.svg",
+          "frameColor": "#8774B0"
+        },
+        {
+          "id": "sky-blue",
+          "name": "Sky Blue",
+          "asset": "assets/frames/samsung/Galaxy S26 Ultra/SVG/Samsung Galaxy S26 Ultra Sky Blue.svg",
+          "frameColor": "#B1C8DF"
+        },
+        {
+          "id": "white",
+          "name": "White",
+          "asset": "assets/frames/samsung/Galaxy S26 Ultra/SVG/Samsung Galaxy S26 Ultra White.svg",
+          "frameColor": "#E6E8EB"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0162,
+        "y": 0.0079,
+        "w": 0.9662,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4802,
+        "y": 0.0286,
+        "w": 0.0382,
+        "h": 0.0193
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0103
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0103
+        }
+      ]
+    },
+    {
+      "id": "sony-xperia-1-vi",
+      "brand": "Sony",
+      "series": "Xperia 1",
+      "model": "Xperia 1 VI",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4616,
+      "frameAspect": 0.466,
+      "screenRect": {
+        "x": 0.0495,
+        "y": 0.0452,
+        "w": 0.901,
+        "h": 0.9096
+      },
+      "cornerRadiusPct": 0.0324,
+      "cutout": "none",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black",
+          "name": "Black",
+          "asset": "assets/frames/sony/Xperia 1 VI/SVG/Xperia 1 VI Black.svg",
+          "frameColor": "#1C1C1C"
+        },
+        {
+          "id": "platinum-silver",
+          "name": "Platinum Silver",
+          "asset": "assets/frames/sony/Xperia 1 VI/SVG/Xperia 1 VI Platinum Silver.svg",
+          "frameColor": "#C8C8C8"
+        },
+        {
+          "id": "khaki-green",
+          "name": "Khaki Green",
+          "asset": "assets/frames/sony/Xperia 1 VI/SVG/Xperia 1 VI Khaki Green.svg",
+          "frameColor": "#5C6048"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0169,
+        "y": 0.0086,
+        "w": 0.9663,
+        "h": 0.9829
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.205,
+          "length": 0.0986,
+          "protrusion": 0.0107
+        },
+        {
+          "side": "right",
+          "top": 0.3229,
+          "length": 0.0543,
+          "protrusion": 0.0107
+        },
+        {
+          "side": "right",
+          "top": 0.8143,
+          "length": 0.045,
+          "protrusion": 0.0107
+        }
+      ]
+    },
+    {
+      "id": "vivo-x100-ultra",
+      "brand": "vivo",
+      "series": "X100",
+      "model": "X100 Ultra",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4553,
+      "frameAspect": 0.4739,
+      "screenRect": {
+        "x": 0.0389,
+        "y": 0.0189,
+        "w": 0.9221,
+        "h": 0.9598
+      },
+      "cornerRadiusPct": 0.1154,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "titanium-gray",
+          "name": "Titanium Gray",
+          "asset": "assets/frames/vivo/X100 Ultra/SVG/X100 Ultra Titanium Gray.svg",
+          "frameColor": "#282830"
+        },
+        {
+          "id": "titanium-white",
+          "name": "Titanium White",
+          "asset": "assets/frames/vivo/X100 Ultra/SVG/X100 Ultra Titanium White.svg",
+          "frameColor": "#EBEBEA"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0166,
+        "y": 0.0079,
+        "w": 0.9654,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4804,
+        "y": 0.0314,
+        "w": 0.0392,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.2093,
+          "length": 0.1143,
+          "protrusion": 0.0105
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0105
+        }
+      ]
+    },
+    {
+      "id": "vivo-x200-pro",
+      "brand": "vivo",
+      "series": "X200",
+      "model": "X200 Pro",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4566,
+      "frameAspect": 0.4764,
+      "screenRect": {
+        "x": 0.0383,
+        "y": 0.0173,
+        "w": 0.9235,
+        "h": 0.9634
+      },
+      "cornerRadiusPct": 0.1154,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "titan-black",
+          "name": "Titan Black",
+          "asset": "assets/frames/vivo/X200 Pro/SVG/X200 Pro Titan Black.svg",
+          "frameColor": "#282830"
+        },
+        {
+          "id": "titan-white",
+          "name": "Titan White",
+          "asset": "assets/frames/vivo/X200 Pro/SVG/X200 Pro Titan White.svg",
+          "frameColor": "#EBEBEA"
+        },
+        {
+          "id": "breeze-blue",
+          "name": "Breeze Blue",
+          "asset": "assets/frames/vivo/X200 Pro/SVG/X200 Pro Breeze Blue.svg",
+          "frameColor": "#1E4868"
+        },
+        {
+          "id": "sunset-orange",
+          "name": "Sunset Orange",
+          "asset": "assets/frames/vivo/X200 Pro/SVG/X200 Pro Sunset Orange.svg",
+          "frameColor": "#B44830"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0165,
+        "y": 0.0079,
+        "w": 0.967,
+        "h": 0.9843
+      },
+      "cutoutRect": {
+        "x": 0.4798,
+        "y": 0.0286,
+        "w": 0.039,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.009
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.009
+        }
+      ]
+    },
+    {
+      "id": "xiaomi-14-ultra",
+      "brand": "Xiaomi",
+      "series": "Xiaomi 14",
+      "model": "Xiaomi 14 Ultra",
+      "platform": "android",
+      "releaseYear": 2024,
+      "screenAspect": 0.4496,
+      "frameAspect": 0.4756,
+      "screenRect": {
+        "x": 0.0512,
+        "y": 0.0236,
+        "w": 0.8976,
+        "h": 0.9495
+      },
+      "cornerRadiusPct": 0.0993,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "black-titanium",
+          "name": "Black Titanium",
+          "asset": "assets/frames/xiaomi/Xiaomi 14 Ultra/SVG/Xiaomi 14 Ultra Black Titanium.svg",
+          "frameColor": "#28262A"
+        },
+        {
+          "id": "white-titanium",
+          "name": "White Titanium",
+          "asset": "assets/frames/xiaomi/Xiaomi 14 Ultra/SVG/Xiaomi 14 Ultra White Titanium.svg",
+          "frameColor": "#E6E2DA"
+        },
+        {
+          "id": "desert-bronze",
+          "name": "Desert Bronze",
+          "asset": "assets/frames/xiaomi/Xiaomi 14 Ultra/SVG/Xiaomi 14 Ultra Desert Bronze.svg",
+          "frameColor": "#B09070"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0165,
+        "y": 0.0086,
+        "w": 0.9655,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.4805,
+        "y": 0.035,
+        "w": 0.039,
+        "h": 0.0186
+      },
+      "pickerHidden": true,
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0105
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0105
+        }
+      ]
+    },
+    {
+      "id": "xiaomi-15-pro",
+      "brand": "Xiaomi",
+      "series": "Xiaomi 15",
+      "model": "Xiaomi 15 Pro",
+      "platform": "android",
+      "releaseYear": 2025,
+      "screenAspect": 0.4496,
+      "frameAspect": 0.4759,
+      "screenRect": {
+        "x": 0.0512,
+        "y": 0.0233,
+        "w": 0.8976,
+        "h": 0.95
+      },
+      "cornerRadiusPct": 0.0993,
+      "cutout": "punch",
+      "formFactor": "phone",
+      "variants": [
+        {
+          "id": "titan-black",
+          "name": "Titan Black",
+          "asset": "assets/frames/xiaomi/Xiaomi 15 Pro/SVG/Xiaomi 15 Pro Titan Black.svg",
+          "frameColor": "#2C2C34"
+        },
+        {
+          "id": "titan-white",
+          "name": "Titan White",
+          "asset": "assets/frames/xiaomi/Xiaomi 15 Pro/SVG/Xiaomi 15 Pro Titan White.svg",
+          "frameColor": "#EBEBEB"
+        },
+        {
+          "id": "titan-gray",
+          "name": "Titan Gray",
+          "asset": "assets/frames/xiaomi/Xiaomi 15 Pro/SVG/Xiaomi 15 Pro Titan Gray.svg",
+          "frameColor": "#909090"
+        }
+      ],
+      "bodyRect": {
+        "x": 0.0165,
+        "y": 0.0086,
+        "w": 0.967,
+        "h": 0.9829
+      },
+      "cutoutRect": {
+        "x": 0.4805,
+        "y": 0.035,
+        "w": 0.039,
+        "h": 0.0186
+      },
+      "keys": [
+        {
+          "side": "right",
+          "top": 0.21,
+          "length": 0.1136,
+          "protrusion": 0.0105
+        },
+        {
+          "side": "right",
+          "top": 0.3421,
+          "length": 0.06,
+          "protrusion": 0.0105
+        }
+      ]
+    }
+  ]
+}

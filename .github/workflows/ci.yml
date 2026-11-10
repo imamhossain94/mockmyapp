@@ -1,0 +1,319 @@
+name: CI
+
+# Every branch, not just main: work happens on feature branches for weeks at a
+# time, and a platform that only gets built at merge time is a platform nobody
+# has built. The paid runners (macOS, Windows) are the exception; see the
+# `changes` job.
+#
+# A pull request runs once as it opens (or leaves draft, or reopens), with every
+# platform. Later pushes to its branch are not run a second time as pull
+# request events: their push runs already show on the pull request, and a
+# second run would build both Macs and Windows on every push for as long as it
+# stays open.
+on:
+  push:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, ready_for_review]
+  workflow_dispatch:
+  # Every platform once a week, on the default branch (GitHub runs a schedule
+  # only from that branch's copy of this file). Nothing else builds the Macs or
+  # Windows while ios/, macos/ and windows/ sit still, so this is what notices
+  # a runner image update (a new Xcode inside macos-26, a new Visual Studio
+  # inside windows-2025) breaking the build before the next change there does.
+  # The caches it saves, the Flutter SDK above all, live on the default branch,
+  # where every branch can restore them; a branch's own caches serve only that
+  # branch. It costs one full run a week, Macs included: `23 4 1 * *` would
+  # make it monthly. Off the hour, when fewer scheduled runs queue.
+  schedule:
+    - cron: '23 4 * * 1'
+
+# One run per branch at a time: a new push makes the old run's results moot.
+# Cancelling loses nothing the next run should check, because the `changes`
+# job compares with the branch's last green run, not with the cancelled one.
+# The weekly run has a group of its own, so it never cancels a push to main
+# halfway, nor is cancelled by one.
+concurrency:
+  group: ci-${{ github.event_name == 'schedule' && 'weekly' || github.ref }}
+  cancel-in-progress: true
+
+# Nothing here writes to the repository, and nothing needs a secret.
+permissions:
+  contents: read
+
+env:
+  # The version both development machines run. A floating `stable` let CI
+  # analyze with a newer SDK than the one the code was written against, and
+  # `flutter analyze` fails on infos, so a new deprecation turned CI red while
+  # every machine stayed green. Bump this and both machines together.
+  FLUTTER_VERSION: 3.44.6
+
+jobs:
+  # Every job has a timeout well above its normal length. Without one a hung
+  # step runs for GitHub's default of six hours, and on a macOS runner that is
+  # more than a month's included minutes in a single run.
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: flutter analyze
+      # ffmpeg, so the Linux video test encodes a real clip and reads it back
+      # (test/process_video_sink_test.dart skips where there is none).
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: flutter test
+
+  # Decides whether this run needs the macOS and Windows runners, which bill
+  # at roughly ten and two times the Linux rate and used to run on every push
+  # to every branch. They always run for main, a pull request as it opens,
+  # manual runs and the weekly run. On any other push they run when that
+  # platform's folder, the dependencies or this workflow differ from the
+  # commit of the branch's last green run, not merely from the previous push.
+  # A run that was cancelled by a quicker second push, or that stopped at a
+  # failing test before the Apple jobs started, compiled nothing, so its
+  # changes still count on the next push; and a red Apple build stays red
+  # until a run fixes it. That is what keeps a Swift edit made on the Windows
+  # PC, which cannot compile it, from going unbuilt until the pull request.
+  # Dart changes are covered by analyze, test and the Linux, Android and web
+  # builds in the meantime.
+  changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # Reading the branch's run history needs `actions: read` as well.
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      apple: ${{ steps.filter.outputs.apple }}
+      windows: ${{ steps.filter.outputs.windows }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history for the merge base, but no file contents beyond the
+          # checked-out commit: the diff below needs only trees.
+          fetch-depth: 0
+          filter: blob:none
+      - id: filter
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          BRANCH: ${{ github.ref_name }}
+          AFTER: ${{ github.sha }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          everything() {
+            echo "apple=true" >> "$GITHUB_OUTPUT"
+            echo "windows=true" >> "$GITHUB_OUTPUT"
+          }
+          if [ "$EVENT" != "push" ] || [ "$REF" = "refs/heads/main" ]; then
+            everything
+            exit 0
+          fi
+          # The newest commit on this branch whose run went green. Every
+          # platform job either built it, or was skipped because nothing it
+          # builds had changed since the green run before, so its platform
+          # folders are known to compile. Only the two trees are compared, so
+          # that commit need not be an ancestor of this one.
+          BASE="$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs" \
+            -f branch="$BRANCH" -f status=success -f per_page=1 \
+            --jq '.workflow_runs[0].head_sha // empty' || true)"
+          # No green run yet (a new branch), or a force-push left that commit
+          # out of this clone: compare with where the branch left main.
+          if [ -z "$BASE" ] || ! git cat-file -e "${BASE}^{commit}" 2>/dev/null; then
+            BASE="$(git merge-base origin/main "$AFTER" || true)"
+          fi
+          if [ -z "$BASE" ]; then
+            everything
+            exit 0
+          fi
+          changed="$(git diff --name-only --no-renames "$BASE" "$AFTER")"
+          printf 'Changed since %s:\n%s\n' "$BASE" "$changed"
+          shared='^(pubspec\.yaml|pubspec\.lock|\.github/workflows/)'
+          if grep -qE "^(ios|macos)/|$shared" <<< "$changed"; then
+            echo "apple=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "apple=false" >> "$GITHUB_OUTPUT"
+          fi
+          if grep -qE "^windows/|$shared" <<< "$changed"; then
+            echo "windows=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "windows=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  build-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: analyze-and-test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+      # android/gradle.properties asks for an 8 GB heap, which suits a
+      # workstation but is the whole of a private repository's Linux runner:
+      # an R8 release build then dies of memory, not of a bug. The user-level
+      # file wins over the project's, so CI caps it here without changing what
+      # the machines get. The Kotlin compiler daemon would otherwise inherit
+      # the same heap, two such JVMs being more than the runner has, so it gets
+      # a smaller cap of its own. And no heap dump on running out of memory: a
+      # dump of up to 4 GB on the runner's small disk would turn the real
+      # failure into "No space left on device".
+      - run: |
+          mkdir -p ~/.gradle
+          {
+            echo "org.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g -XX:ReservedCodeCacheSize=512m"
+            echo "kotlin.daemon.jvmargs=-Xmx2g"
+          } >> ~/.gradle/gradle.properties
+      - run: flutter pub get
+      - run: flutter build apk --release
+
+  # Plugins build through Swift Package Manager, so no CocoaPods step is
+  # needed on either Apple job.
+  build-ios:
+    runs-on: macos-26
+    timeout-minutes: 40
+    needs: [analyze-and-test, changes]
+    if: needs.changes.outputs.apple == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      - run: flutter build ios --release --no-codesign
+
+  # macOS is a paid platform, so it needs a job that fails when it breaks.
+  #
+  # Unsigned and debug on purpose: signing needs a certificate this workflow has
+  # no business holding, and the point here is to catch the Mac target rotting:
+  # a Swift package that stops resolving, an entitlement that stops parsing, a
+  # plugin with no macOS implementation. A debug build catches all three.
+  #
+  # `macos-26` rather than `macos-latest`: FoundationModels needs the macOS 26
+  # SDK, and a silent move of `-latest` should not decide when that changes.
+  build-macos:
+    runs-on: macos-26
+    timeout-minutes: 40
+    needs: [analyze-and-test, changes]
+    if: needs.changes.outputs.apple == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      - run: flutter build macos --debug
+
+  build-web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: analyze-and-test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      # The web's own storage — IndexedDB — only exists in a browser, so its
+      # tests run in the Chrome the runner already has.
+      - run: flutter test --platform chrome test/web
+      # The same command a contributor runs: no defines, no secrets.
+      - run: flutter build web --release
+      # The bundle, for anyone who wants to host it themselves. Files whose
+      # names start with a dot stay out (upload-artifact's default), which
+      # leaves out only Flutter's own .last_build_id.
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web
+          retention-days: 7
+
+  # The two desktop platforms with no store build of their own yet. Debug, like
+  # macOS: the point is that the runner, the plugins and the native bridges
+  # still compile.
+  #
+  # `windows-2025` rather than `windows-latest`: today they are the same image
+  # (Windows Server 2025 with Visual Studio 2026 since June 2026), but the pin
+  # makes the next move of `-latest` a decision instead of a surprise. Flutter 3.44 builds with Visual
+  # Studio 2026; should a later combination fail, `windows-2022` still carries
+  # Visual Studio 2022.
+  build-windows:
+    runs-on: windows-2025
+    timeout-minutes: 40
+    needs: [analyze-and-test, changes]
+    if: needs.changes.outputs.windows == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      - run: flutter build windows --debug
+      # The Media Foundation writer on its own (tool/windows_mp4_check): a
+      # clip with its silent AAC track written, then read back for frames,
+      # orientation, colour, the audio stream and the file's length. The
+      # Windows Server image may have no Media Foundation at all
+      # (Server-Media-Foundation is not among the features runner-images
+      # installs): then the check is built, and its run skips, saying so —
+      # first here, since without mfplat.dll the program cannot even load,
+      # then in the program, when there is no H.264 or AAC encoder. On a
+      # Windows desktop the same commands run it in full.
+      - name: Windows MP4 check
+        shell: bash
+        run: |
+          cmake -S tool/windows_mp4_check -B build/windows_mp4_check
+          cmake --build build/windows_mp4_check --config Release
+          if [ -f /c/Windows/System32/mfplat.dll ] && [ -f /c/Windows/System32/mfreadwrite.dll ]; then
+            ./build/windows_mp4_check/Release/windows_mp4_check.exe --skip-unavailable
+          else
+            echo "SKIP: no Media Foundation on this Windows"
+          fi
+
+  build-linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: analyze-and-test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      # GTK for the runner and the file picker, clipboard and share plugins.
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build libgtk-3-dev
+      - run: flutter pub get
+      - run: flutter build linux --debug

@@ -1,0 +1,15 @@
+# Copy to android/key.properties and fill in. That file is gitignored.
+#
+# Generate the keystore once and keep it somewhere you will still have it in
+# five years — losing it means you can never update the listing again, short of
+# being enrolled in Play App Signing (which you should be):
+#
+#   keytool -genkey -v -keystore ~/mockmyapp-release.jks \
+#     -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+# For CI, base64 the .jks into a repository secret and write both files back out
+# in the workflow before building.
+storeFile=/absolute/path/to/mockmyapp-release.jks
+storePassword=
+keyAlias=upload
+keyPassword=

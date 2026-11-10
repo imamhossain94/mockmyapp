@@ -1,0 +1,19 @@
+// Application-level settings for the Runner target.
+//
+// This may be replaced with something auto-generated from metadata (e.g., pubspec.yaml) in the
+// future. If not, the values below would default to using the project name when this becomes a
+// 'flutter create' template.
+
+// The application's name. By default this is also the title of the Flutter window.
+//
+// The proper name, not the pubspec's package name. This is what shows in the
+// menu bar, in Finder, and on the Mac App Store listing — `mockup_studio` was
+// the `flutter create` default leaking into the product.
+PRODUCT_NAME = MockMyApp
+
+// The application's bundle identifier
+PRODUCT_BUNDLE_IDENTIFIER = com.newagedevs.mockmyapp
+
+// The copyright displayed in application information
+// A human-readable field; it had the literal reverse-DNS identifier in it.
+PRODUCT_COPYRIGHT = Copyright © 2026 New Age Devs. All rights reserved.

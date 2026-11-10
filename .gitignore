@@ -1,0 +1,64 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+__pycache__/
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Release signing material. Committing either of these hands anyone who clones
+# the repo the ability to ship an update as us.
+/android/key.properties
+*.jks
+*.keystore
+
+# Apple signing. Mirrors android/key.properties: the team ID is not a secret,
+# but it is per-developer, and a committed one silently signs someone else's
+# build with the wrong team.
+/ios/Flutter/Signing.xcconfig
+/macos/Runner/Configs/Signing.xcconfig
+
+# Claude Code. Agent worktrees are full git checkouts of this repo, and the
+# local settings file is per machine; the shared skills and settings.json are
+# committed.
+/.claude/worktrees/
+/.claude/settings.local.json

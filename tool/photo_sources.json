@@ -1,0 +1,380 @@
+{
+ "_licence": "Photographs from Unsplash, fetched through Lorem Picsum (picsum.photos). The Unsplash Licence grants an irrevocable, nonexclusive, worldwide copyright licence to download, copy, modify, distribute, perform and use them for free, including commercially, with no permission or attribution required. They are composited into the generated template artwork; the originals are not redistributed. Photographers are recorded below as a courtesy and for the app author records.",
+ "_regenerate": "python tool/generate_template_displays.py",
+ "categories": {
+  "people": [
+   "22",
+   "64",
+   "65",
+   "91",
+   "129",
+   "173",
+   "177",
+   "203",
+   "259",
+   "281",
+   "304",
+   "209"
+  ],
+  "travel": [
+   "10",
+   "15",
+   "27",
+   "29",
+   "37",
+   "49",
+   "54",
+   "70",
+   "78",
+   "94",
+   "128",
+   "143",
+   "164",
+   "196",
+   "202",
+   "267",
+   "294"
+  ],
+  "city": [
+   "43",
+   "88",
+   "122",
+   "159",
+   "220",
+   "238",
+   "249",
+   "283",
+   "288",
+   "299"
+  ],
+  "food": [
+   "30",
+   "63",
+   "102",
+   "139",
+   "167",
+   "225",
+   "248",
+   "292",
+   "312"
+  ],
+  "work": [
+   "0",
+   "3",
+   "4",
+   "6",
+   "8",
+   "20",
+   "26",
+   "36",
+   "48",
+   "60",
+   "145",
+   "180"
+  ],
+  "abstract": [
+   "41",
+   "53",
+   "56",
+   "115",
+   "126",
+   "152",
+   "157",
+   "178",
+   "222",
+   "232",
+   "310",
+   "315"
+  ]
+ },
+ "credits": {
+  "22": {
+   "author": "Alejandro Escamilla",
+   "unsplash": "https://unsplash.com/photos/du_OrQAA4r0"
+  },
+  "64": {
+   "author": "Alexander Shustov",
+   "unsplash": "https://unsplash.com/photos/AHBiSKaENwc"
+  },
+  "65": {
+   "author": "Alexander Shustov",
+   "unsplash": "https://unsplash.com/photos/2FrX56QL7P8"
+  },
+  "91": {
+   "author": "Jennifer Trovato",
+   "unsplash": "https://unsplash.com/photos/baRYCsjO6z4"
+  },
+  "129": {
+   "author": "Charlie Foster",
+   "unsplash": "https://unsplash.com/photos/A88emaZe7d8"
+  },
+  "173": {
+   "author": "Linh Nguyen",
+   "unsplash": "https://unsplash.com/photos/J8k-gzI0Zy0"
+  },
+  "177": {
+   "author": "Danka & Peter",
+   "unsplash": "https://unsplash.com/photos/tvicgTdh7Fg"
+  },
+  "203": {
+   "author": "Diogo Tavares",
+   "unsplash": "https://unsplash.com/photos/PFZTiiJnjag"
+  },
+  "259": {
+   "author": "Namphuong Van",
+   "unsplash": "https://unsplash.com/photos/hfIheOEJp9M"
+  },
+  "281": {
+   "author": "Victor Erixon",
+   "unsplash": "https://unsplash.com/photos/_poRbNNfcE8"
+  },
+  "304": {
+   "author": "Drew Patrick Miller",
+   "unsplash": "https://unsplash.com/photos/_o6AAx9dl_Y"
+  },
+  "209": {
+   "author": "Martin Wessely",
+   "unsplash": "https://unsplash.com/photos/-FgZlbzZ0R8"
+  },
+  "10": {
+   "author": "Paul Jarvis",
+   "unsplash": "https://unsplash.com/photos/6J--NXulQCs"
+  },
+  "15": {
+   "author": "Paul Jarvis",
+   "unsplash": "https://unsplash.com/photos/NYDo21ssGao"
+  },
+  "27": {
+   "author": "Yoni Kaplan-Nadel",
+   "unsplash": "https://unsplash.com/photos/iJnZwLBOB1I"
+  },
+  "29": {
+   "author": "Go Wild",
+   "unsplash": "https://unsplash.com/photos/V0yAek6BgGk"
+  },
+  "37": {
+   "author": "Austin Neill",
+   "unsplash": "https://unsplash.com/photos/erTjj730fMk"
+  },
+  "49": {
+   "author": "Margaret Barley",
+   "unsplash": "https://unsplash.com/photos/Qo51KwK1dKg"
+  },
+  "54": {
+   "author": "Nicholas Swanson",
+   "unsplash": "https://unsplash.com/photos/d19by2PLaPc"
+  },
+  "70": {
+   "author": "Dorothy Lin",
+   "unsplash": "https://unsplash.com/photos/OokBLPrkCNk"
+  },
+  "78": {
+   "author": "Paul Evans",
+   "unsplash": "https://unsplash.com/photos/CtkDsu4w-Rs"
+  },
+  "94": {
+   "author": "Jean Kleisz",
+   "unsplash": "https://unsplash.com/photos/4yzPVohNuVI"
+  },
+  "128": {
+   "author": "Matteo Minelli",
+   "unsplash": "https://unsplash.com/photos/hlnucYOsL-c"
+  },
+  "143": {
+   "author": "Steve Richey",
+   "unsplash": "https://unsplash.com/photos/6xqAK6oAeHA"
+  },
+  "164": {
+   "author": "Linh Nguyen",
+   "unsplash": "https://unsplash.com/photos/agkblvPff5U"
+  },
+  "196": {
+   "author": "Dyaa Eldin Moustafa",
+   "unsplash": "https://unsplash.com/photos/mR_HR8NZwg8"
+  },
+  "202": {
+   "author": "Glen Carrie",
+   "unsplash": "https://unsplash.com/photos/xlAmGyZE7Zg"
+  },
+  "267": {
+   "author": "Robin Benad",
+   "unsplash": "https://unsplash.com/photos/uLLUnacamlo"
+  },
+  "294": {
+   "author": "Robin Benad",
+   "unsplash": "https://unsplash.com/photos/NKV6xXErcyY"
+  },
+  "43": {
+   "author": "Oleg Chursin",
+   "unsplash": "https://unsplash.com/photos/IoCWq07GaG4"
+  },
+  "88": {
+   "author": "Barcelona",
+   "unsplash": "https://unsplash.com/photos/muC_6gTMLR4"
+  },
+  "122": {
+   "author": "Vadim Sherbakov",
+   "unsplash": "https://unsplash.com/photos/xS_RzdD5CFE"
+  },
+  "159": {
+   "author": "Shyamanta Baruah",
+   "unsplash": "https://unsplash.com/photos/kxqvE41_07k"
+  },
+  "220": {
+   "author": "Robin Röcker",
+   "unsplash": "https://unsplash.com/photos/qUToqliACNA"
+  },
+  "238": {
+   "author": "Anders Jildén",
+   "unsplash": "https://unsplash.com/photos/yb0Qs65aZmc"
+  },
+  "249": {
+   "author": "Anders Jildén",
+   "unsplash": "https://unsplash.com/photos/nrLtvA05jk8"
+  },
+  "283": {
+   "author": "Wojtek Witkowski",
+   "unsplash": "https://unsplash.com/photos/GtxZbYMCiPY"
+  },
+  "288": {
+   "author": "Stockholm",
+   "unsplash": "https://unsplash.com/photos/eVBg7A07NGg"
+  },
+  "299": {
+   "author": "Matthew Wiebe",
+   "unsplash": "https://unsplash.com/photos/nOhUx3tiaQQ"
+  },
+  "30": {
+   "author": "Shyamanta Baruah",
+   "unsplash": "https://unsplash.com/photos/aeVA-j1y2BY"
+  },
+  "63": {
+   "author": "Justin Leibow",
+   "unsplash": "https://unsplash.com/photos/ZJsseAxEcqM"
+  },
+  "102": {
+   "author": "Ben Moore",
+   "unsplash": "https://unsplash.com/photos/pJILiyPdrXI"
+  },
+  "139": {
+   "author": "Steve Richey",
+   "unsplash": "https://unsplash.com/photos/M-1MRfncLk0"
+  },
+  "167": {
+   "author": "petradr",
+   "unsplash": "https://unsplash.com/photos/WqK_xV_hbug"
+  },
+  "225": {
+   "author": "Vee O",
+   "unsplash": "https://unsplash.com/photos/hGO27G5tZJ8"
+  },
+  "248": {
+   "author": "Oliver Pacas",
+   "unsplash": "https://unsplash.com/photos/tZrrWkQT9MM"
+  },
+  "292": {
+   "author": "Webvilla",
+   "unsplash": "https://unsplash.com/photos/hv1MrBzGGNY"
+  },
+  "312": {
+   "author": "Sonja Langford",
+   "unsplash": "https://unsplash.com/photos/RQHzRELE2Ss"
+  },
+  "0": {
+   "author": "Alejandro Escamilla",
+   "unsplash": "https://unsplash.com/photos/yC-Yzbqy7PY"
+  },
+  "3": {
+   "author": "Alejandro Escamilla",
+   "unsplash": "https://unsplash.com/photos/Dl6jeyfihLk"
+  },
+  "4": {
+   "author": "Alejandro Escamilla",
+   "unsplash": "https://unsplash.com/photos/y83Je1OC6Wc"
+  },
+  "6": {
+   "author": "Alejandro Escamilla",
+   "unsplash": "https://unsplash.com/photos/tAKXap853rY"
+  },
+  "8": {
+   "author": "Alejandro Escamilla",
+   "unsplash": "https://unsplash.com/photos/xII7efH1G6o"
+  },
+  "20": {
+   "author": "Aleks Dorohovich",
+   "unsplash": "https://unsplash.com/photos/nJdwUHmaY8A"
+  },
+  "26": {
+   "author": "Vadim Sherbakov",
+   "unsplash": "https://unsplash.com/photos/tCICLJ5ktBE"
+  },
+  "36": {
+   "author": "Vadim Sherbakov",
+   "unsplash": "https://unsplash.com/photos/osSryggkso4"
+  },
+  "48": {
+   "author": "Luke Chesser",
+   "unsplash": "https://unsplash.com/photos/1uxV8fAfhVM"
+  },
+  "60": {
+   "author": "Vadim Sherbakov",
+   "unsplash": "https://unsplash.com/photos/Hi9GSwWkCJk"
+  },
+  "145": {
+   "author": "Lucas Boesche",
+   "unsplash": "https://unsplash.com/photos/VkuuTRkcRqw"
+  },
+  "180": {
+   "author": "Galymzhan Abdugalimov",
+   "unsplash": "https://unsplash.com/photos/ICW6QYOcdlg"
+  },
+  "41": {
+   "author": "Nithya Ramanujam",
+   "unsplash": "https://unsplash.com/photos/fTKetYpEKNQ"
+  },
+  "53": {
+   "author": "J Duclos",
+   "unsplash": "https://unsplash.com/photos/6qORI5j_6n8"
+  },
+  "56": {
+   "author": "Sebastian Muller",
+   "unsplash": "https://unsplash.com/photos/VLdaxYyXJvw"
+  },
+  "115": {
+   "author": "Christian Hebell",
+   "unsplash": "https://unsplash.com/photos/A6S-q3D67Ss"
+  },
+  "126": {
+   "author": "Zugr",
+   "unsplash": "https://unsplash.com/photos/asrWX-lU3RE"
+  },
+  "152": {
+   "author": "Steven Spassov",
+   "unsplash": "https://unsplash.com/photos/tVIqMgGlAG0"
+  },
+  "157": {
+   "author": "koichi nakajima",
+   "unsplash": "https://unsplash.com/photos/HFbRnCjWHsk"
+  },
+  "178": {
+   "author": "Thanun Buranapong",
+   "unsplash": "https://unsplash.com/photos/JbeBraLha7U"
+  },
+  "222": {
+   "author": "Todd Quackenbush",
+   "unsplash": "https://unsplash.com/photos/CKl172V28wM"
+  },
+  "232": {
+   "author": "Hide Obara",
+   "unsplash": "https://unsplash.com/photos/Qh6wsKk1HWg"
+  },
+  "310": {
+   "author": "Dominik Martin",
+   "unsplash": "https://unsplash.com/photos/YxNW6SqiDD8"
+  },
+  "315": {
+   "author": "Liam Andrew",
+   "unsplash": "https://unsplash.com/photos/W7CopGaHkEM"
+  }
+ }
+}
