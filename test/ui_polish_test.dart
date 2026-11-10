@@ -195,14 +195,28 @@ void main() {
         final handle = tester.ensureSemantics();
         await _pump(
           tester,
-          const Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              StudioInlineMessage.info(message: 'Info message'),
-              StudioInlineMessage.success(message: 'Success message'),
-              StudioInlineMessage.warning(message: 'Warning message'),
-              StudioInlineMessage.error(message: 'Error message'),
-            ],
+          // Painted at twice the size, and narrow enough to stay on screen at
+          // it. The guideline takes the commonest light and dark pixels in a
+          // label's box to be the text and its background, and under Linux's
+          // FreeType a regular 14px stroke has so few solid pixels that an
+          // edge shade won: CI read the error strip as 1.17 when its words are
+          // 12.46. Doubled, every stroke has a solid core on any machine, and
+          // the bar is still the 4.5 a 14px style asks for. The contrast test
+          // in accessibility_test.dart has the whole story.
+          Transform.scale(
+            scale: 2,
+            child: const SizedBox(
+              width: 360,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  StudioInlineMessage.info(message: 'Info message'),
+                  StudioInlineMessage.success(message: 'Success message'),
+                  StudioInlineMessage.warning(message: 'Warning message'),
+                  StudioInlineMessage.error(message: 'Error message'),
+                ],
+              ),
+            ),
           ),
           brightness: brightness,
         );

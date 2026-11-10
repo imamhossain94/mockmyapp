@@ -63,18 +63,21 @@ bool _inGroup(WidgetTester tester, String label) => _labelled(
   label,
 ).getSemanticsData().flagsCollection.isInMutuallyExclusiveGroup;
 
-/// Pumps [child] inside the app's own theme, in [brightness].
+/// Pumps [child] inside the app's own theme, in [brightness], painted at
+/// [scale] times its size.
 Future<void> pumpStudio(
   WidgetTester tester,
   Widget child, {
   Brightness brightness = Brightness.dark,
+  double scale = 1,
 }) async {
   // Everything on screen at once. A node scrolled out of view is not in the
   // semantics tree, and a guideline that silently skipped half the gallery
-  // would pass for the wrong reason.
+  // would pass for the wrong reason. The view grows with [scale] for the same
+  // reason: the contrast guideline skips a node painted past its edge.
   tester.view
     ..devicePixelRatio = 1
-    ..physicalSize = const Size(420, 1600);
+    ..physicalSize = const Size(420, 1600) * scale;
   addTearDown(tester.view.reset);
 
   await tester.pumpWidget(
@@ -83,7 +86,14 @@ Future<void> pumpStudio(
           ? StudioAppTheme.dark()
           : StudioAppTheme.light(),
       home: Scaffold(
-        body: Center(child: SizedBox(width: 360, child: child)),
+        // Scaled in paint only, so every component is laid out exactly as it
+        // is at 1x.
+        body: Center(
+          child: Transform.scale(
+            scale: scale,
+            child: SizedBox(width: 360, child: child),
+          ),
+        ),
       ),
     ),
   );
@@ -252,10 +262,24 @@ void main() {
     // chip text on the new `onAccentSubtle` token. Both themes, because the
     // palettes differ and a pair that clears AA on the dark panel can fail on
     // the light one.
+    //
+    // Painted at twice the size, because the guideline never reads a text
+    // colour. It photographs the screen at one pixel per logical pixel,
+    // whatever the device pixel ratio, and takes the commonest light and dark
+    // colours in each label's box to be the text and what is behind it. A
+    // regular 14px Inter stroke is barely wider than a pixel, so few of its
+    // pixels are fully covered, and whether they outnumber the commonest edge
+    // shade depends on the machine, because the test shell draws glyphs with
+    // the host's own font engine. With a Mac's CoreText the text colour wins.
+    // With Linux's FreeType an edge shade won, and CI read the plain and
+    // selected rows as 1.41 and 1.17 when they are 14.21 and 12.65. At twice
+    // the size every stroke has a solid core on both, and the bar stays where
+    // it was: the guideline takes the 14px from the style, not from the
+    // screen, so it still asks for 4.5.
     for (final brightness in Brightness.values) {
       testWidgets('${brightness.name} theme', (tester) async {
         final handle = tester.ensureSemantics();
-        await pumpStudio(tester, gallery(), brightness: brightness);
+        await pumpStudio(tester, gallery(), brightness: brightness, scale: 2);
         await expectLater(tester, meetsGuideline(textContrastGuideline));
         handle.dispose();
       });
