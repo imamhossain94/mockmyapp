@@ -2,6 +2,26 @@
 
 Newest first. One short entry per working session — what landed, what's next.
 
+## 2026-11-11 — Version 1.0.0 on GitHub
+
+- **CI is green on all six platforms** in the public repository. The two text-contrast tests now
+  check at twice the size: on Linux, FreeType's edge shading made Flutter's contrast guideline
+  misread 14px text. No colour changed.
+- **Releases:** pushing a `v*` tag runs `.github/workflows/release.yml`, which builds macOS
+  (signed ad hoc, App Sandbox kept), Windows (with the Visual C++ runtime beside the .exe), Linux
+  (built on Ubuntu 22.04, so it needs glibc 2.34 or later) and the web, and attaches them to a
+  draft release with `.github/release-notes.md` as the notes. Run by hand with no tag, it builds
+  a branch without releasing anything.
+- **Android:** the APK is built and signed on the owner's Mac with the project's key and uploaded
+  to the draft by hand. CI's debug key changes every run, and an APK signed with it could never
+  be updated. Signer certificate SHA-256:
+  `fdb770fa8bdb00f36a47d07aff80e23eb230a0a344193ec33095a564623f4eeb`.
+- **v1.0.0** is published at https://github.com/imamhossain94/mockmyapp/releases/tag/v1.0.0.
+  The files have version-free names, so `releases/latest/download/MockMyApp-macOS.zip` and the
+  others always fetch the newest release.
+- **Open:** notarizing the Mac app and signing the Windows one would need paid Apple and Microsoft
+  certificates; until then the release notes walk through Gatekeeper and SmartScreen.
+
 ## 2026-11-11 — MockMyApp goes open source
 
 - **The decision.** MockMyApp is free and open source under the MIT License and runs entirely on

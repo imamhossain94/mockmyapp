@@ -31,8 +31,9 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
   site; the macOS sandbox refuses outgoing network. The AI features that remain run on the device
   (Apple Intelligence, Gemini Nano, Chrome's built-in AI, Apple Translate, ML Kit) or fall back to
   built-in rules.
-- **Next:** publish the public repository (planned), CI green there on all six platforms, then
-  the owner's decisions in R1.
+- **Next:** the owner's remaining decisions in R1 (ML Kit on Android, the web build's fallback
+  fonts) and screenshots for the README. The repository is public, CI is green there on all six
+  platforms, and v1.0.0 is out with builds for every platform but iOS (2026-11-11).
 
 ---
 
@@ -46,7 +47,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
 | Read text off a screenshot | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Video export | ✅ MP4 | ✅ MP4 | ✅ MP4 | ✅ MP4² | ✅ MP4³ | ✅ MP4⁴ |
 | Copy image to clipboard | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Distribution | APK from a build | build it yourself | build it yourself | static web build | build it yourself | build it yourself |
+| Distribution | APK in Releases | build it yourself | zip in Releases, not notarized | app.mockmyapp.com, zip in Releases | zip in Releases, unsigned | tar.gz in Releases |
 | Native code compiled by CI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ¹ Where the device has the model; the built-in phrasebook stands in otherwise.
@@ -58,12 +59,16 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
 
 ## R1 — The first public release
 
-- [ ] **[Owner]** The public repository is planned at https://github.com/imamhossain94/mockmyapp,
+- [x] **[Owner]** The public repository is at https://github.com/imamhossain94/mockmyapp,
       starting from this tree. The website lives in a repository of its own.
-- [ ] CI green on all six platforms there (`.github/workflows/ci.yml` needs no secrets).
-- [ ] **[Owner]** Decide where the web build lives (GitHub Pages, Cloudflare Pages, Netlify — any
-      static host; `web/_headers` is read by the last two) and whether releases carry builds
-      (an Android APK, a zipped macOS app, Windows and Linux folders, the web bundle).
+- [x] CI green on all six platforms there (`.github/workflows/ci.yml` needs no secrets)
+      (2026-11-11). The text-contrast tests check at twice the size, where Linux's font engine
+      agrees with the Mac's.
+- [x] **[Owner]** Where the web build lives and whether releases carry builds (2026-11-11): the web
+      build runs at https://app.mockmyapp.com, and every release carries all five builds.
+      `.github/workflows/release.yml` builds macOS, Windows, Linux and the web from a `v*` tag
+      into a draft release; the APK is signed on the owner's machine and added by hand (the
+      workflow's header says how). v1.0.0 was the first.
 - [ ] **[Owner]** Decide whether the Android build keeps Google's ML Kit (on-device translation,
       text recognition and Gemini Nano captions). It runs on the device, but it downloads models
       from Google and, by Google's terms, sends Google usage metrics. Dropping the three Gradle
