@@ -2,6 +2,15 @@
 
 Newest first. One short entry per working session — what landed, what's next.
 
+## 2026-11-11 — Version 1.1.0
+
+- **v1.1.0** carries the templates from the studio's own apps and Settings › About › More from
+  New Age Devs (the entry below), with the same five builds as 1.0.0. The pubspec is 1.1.0+2, so
+  the APK's version code 2 installs over 1.0.0's 1; it is signed with the same key (certificate
+  SHA-256 `fdb770fa8bdb00f36a47d07aff80e23eb230a0a344193ec33095a564623f4eeb`). The release
+  notes' "What's new" lists the changes. Release:
+  https://github.com/imamhossain94/mockmyapp/releases/tag/v1.1.0.
+
 ## 2026-11-11 — The studio's own apps in the template gallery
 
 - **New templates**, each measured off the app's own published Play screenshots and checked

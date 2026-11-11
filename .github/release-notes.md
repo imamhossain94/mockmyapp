@@ -4,7 +4,12 @@ The web version also runs at **https://app.mockmyapp.com**, with nothing to inst
 
 ## What's new
 
-This is the first release.
+- **New templates from New Age Devs' own apps:** Cars to Rockets and Jelly Float, eight screens each, and Gesture Volume, four screens. Each is laid out like the app's own Google Play listing.
+- **Sonary's template is complete:** its four empty phones now show Sonary's own screens.
+- **Three more fonts:** Lilita One, Fredoka and Plus Jakarta Sans.
+- **Long headlines fit:** a longer headline of your own shrinks to stay on a template's band instead of running onto the picture below it.
+- **Flat frames:** a built frame can be a flat rim in one colour instead of a phone's metal rail and black bezel.
+- **More from New Age Devs:** Settings › About lists the studio's other apps. A tap copies the app's Google Play link; nothing opens and nothing is downloaded.
 
 ## Installing
 

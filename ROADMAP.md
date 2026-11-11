@@ -33,7 +33,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
   built-in rules.
 - **Next:** the owner's remaining decisions in R1 (ML Kit on Android, the web build's fallback
   fonts) and screenshots for the README. The repository is public, CI is green there on all six
-  platforms, and v1.0.0 is out with builds for every platform but iOS (2026-11-11).
+  platforms, and v1.1.0 is out with builds for every platform but iOS (2026-11-11).
 
 ---
 
@@ -91,7 +91,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
 - [x] Settings › About shows the source code's address, https://github.com/imamhossain94/mockmyapp,
       and copies it on a tap (2026-11-11).
 
-## Since v1.0.0 — for the next release
+## v1.1.0 — the studio's own apps (2026-11-11)
 
 - [x] The template gallery shows the studio's own apps, each measured off its own published Play
       screenshots (2026-11-11): Cars to Rockets and Jelly Float, eight screens each, the game edge
@@ -102,9 +102,9 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
       Fish, Jelly Float, Gesture Volume and Sonary, with bundled icons and the studio's own lines
       from newagedevs.com. A tap copies the plain Google Play link, as the source code row
       copies its address; nothing is fetched, opened or shown anywhere else.
-- [ ] **[Owner]** Look the new templates over on a real set: the web editor's Android set shows
-      them exactly as published; on the 6.9-inch iPhone page the two games' artwork loses about
-      9% at each side, and every phone listing sits lower until captures are in.
+- [x] **[Owner]** The new templates approved from offline renders of the web editor's Android set
+      and the 6.9-inch iPhone page (2026-11-11). On the iPhone page the two games' artwork loses
+      about 9% at each side, and every phone listing sits lower until captures are in.
 
 ## R2 — Checks only a device can make
 
