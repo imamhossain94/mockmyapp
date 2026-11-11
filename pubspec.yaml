@@ -142,6 +142,8 @@ flutter:
     - assets/templates/gesturevolume/
     - assets/templates/jellyfloat/
     - assets/templates/sonary/
+    # The studio's other apps' icons, for Settings › About.
+    - assets/more_apps/
     - assets/clipart/arrows/
     - assets/clipart/speech/
     - assets/clipart/badges/

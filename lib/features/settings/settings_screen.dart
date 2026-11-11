@@ -11,6 +11,7 @@ import '../../domain/engine/export_settings.dart';
 import '../../domain/providers/settings_provider.dart';
 import '../shared/save_actions.dart' show showStudioSnack;
 import '../shared/widgets/widgets.dart';
+import 'more_apps.dart';
 
 // Settings, laid out as a JetBrains settings page: `textTertiary` eyebrows
 // over flat grouped panels of hairline-separated rows.
@@ -22,9 +23,11 @@ import '../shared/widgets/widgets.dart';
 /// even this one.
 const kSourceCodeUrl = 'https://github.com/imamhossain94/mockmyapp';
 
-/// Puts [kSourceCodeUrl] on the clipboard, and says so.
-Future<void> _copySourceLink(BuildContext context) async {
-  await Clipboard.setData(const ClipboardData(text: kSourceCodeUrl));
+/// Puts [link] on the clipboard, and says so: the source code's address, or
+/// one of the studio's other apps' store listings, which are copied for the
+/// same reason the source is.
+Future<void> _copyLink(BuildContext context, String link) async {
+  await Clipboard.setData(ClipboardData(text: link));
   if (context.mounted) showStudioSnack(context, 'Link copied');
 }
 
@@ -247,7 +250,7 @@ class SettingsScreen extends ConsumerWidget {
                     title: 'Source code',
                     subtitle: kSourceCodeUrl.replaceFirst('https://', ''),
                     trailing: const _RowGlyph(StudioIcons.duplicate),
-                    onTap: () => _copySourceLink(context),
+                    onTap: () => _copyLink(context, kSourceCodeUrl),
                   ),
                   const StudioDivider(),
                   StudioListRow(
@@ -270,6 +273,46 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                   ),
                 ],
+              ),
+
+              SizedBox(height: StudioSpace.xxxl),
+
+              // ---------------------------------------------------------------
+              // MORE FROM NEW AGE DEVS
+              // ---------------------------------------------------------------
+              // The studio's other apps, kept to a list in Settings: nothing
+              // about them shows anywhere else, nothing pops up, and a tap
+              // copies a store link rather than opening one.
+              const _Eyebrow('More from New Age Devs'),
+              _Group(
+                children: [
+                  for (final (i, app) in kStudioApps.indexed) ...[
+                    if (i > 0) const StudioDivider(),
+                    StudioListRow(
+                      key: ValueKey('studio-app-${app.name}'),
+                      leading: StudioAppIcon(app),
+                      title: app.name,
+                      subtitle: app.tagline,
+                      trailing: const _RowGlyph(StudioIcons.duplicate),
+                      onTap: () => _copyLink(context, app.link),
+                    ),
+                  ],
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  StudioSpace.xs,
+                  StudioSpace.m,
+                  StudioSpace.xs,
+                  0,
+                ),
+                child: Text(
+                  'Apps and games by the studio that makes MockMyApp. A tap '
+                  'copies the Google Play link.',
+                  style: StudioText.caption(
+                    context,
+                  ).copyWith(color: s.textTertiary),
+                ),
               ),
 
               SizedBox(height: StudioSpace.huge),

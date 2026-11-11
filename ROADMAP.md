@@ -98,6 +98,10 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
       to edge under its band; Gesture Volume, four screens in its flat white rim; and Sonary's
       four flat screens now wear clean captures of the app's own UI. Hungry Fish is not a
       template: its listing is landscape with no phone, and the gallery's sets are portrait.
+- [x] Settings › About › More from New Age Devs (2026-11-11): Arrow Rush, Cars to Rockets, Hungry
+      Fish, Jelly Float, Gesture Volume and Sonary, with bundled icons and the studio's own lines
+      from newagedevs.com. A tap copies the plain Google Play link, as the source code row
+      copies its address; nothing is fetched, opened or shown anywhere else.
 - [ ] **[Owner]** Look the new templates over on a real set: the web editor's Android set shows
       them exactly as published; on the 6.9-inch iPhone page the two games' artwork loses about
       9% at each side, and every phone listing sits lower until captures are in.

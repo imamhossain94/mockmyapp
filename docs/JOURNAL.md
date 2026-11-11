@@ -25,6 +25,10 @@ Newest first. One short entry per working session — what landed, what's next.
   a band's foot as the fit box.
 - **Sonary's captures** come from its repo's `RENDER_PREVIEWS=1 flutter test
   test/screenshot_preview_test.dart` (`build/preview/*_phone_dark.png`).
+- **Settings › About › More from New Age Devs** lists the studio's six other apps with icons
+  bundled under `assets/more_apps/` and lines from newagedevs.com (two trimmed to fit). A tap
+  copies the plain Google Play link; the app has no launcher plugin of its own and fetches
+  nothing (`test/more_apps_test.dart`). `StudioListRow` takes a `leading` picture for it.
 
 ## 2026-11-11 — Version 1.0.0 on GitHub
 

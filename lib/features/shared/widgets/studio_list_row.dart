@@ -4,8 +4,9 @@ import '../../../app/theme/studio_icons.dart';
 import '../../../app/theme/studio_tokens.dart';
 import '../../../app/theme/studio_typography.dart';
 
-/// A settings / list row: optional leading glyph, title, optional subtitle and
-/// an optional trailing widget, at least `StudioSizes.listRow` tall.
+/// A settings / list row: optional leading glyph or picture, title, optional
+/// subtitle and an optional trailing widget, at least `StudioSizes.listRow`
+/// tall.
 ///
 /// Hover paints `hoverBg`; [selected] paints `selectionBg`. Used by the
 /// settings screen, the device and font pickers, and the layers list.
@@ -14,6 +15,7 @@ class StudioListRow extends StatelessWidget {
     super.key,
     required this.title,
     this.icon,
+    this.leading,
     this.subtitle,
     this.trailing,
     this.onTap,
@@ -28,6 +30,10 @@ class StudioListRow extends StatelessWidget {
 
   /// Optional leading glyph. Must come from `StudioIcons`.
   final StudioIconData? icon;
+
+  /// A leading picture in place of [icon], for a row that names something
+  /// with a face of its own — an app, by its icon. Wins over [icon].
+  final Widget? leading;
 
   /// Optional secondary line rendered in `caption` / `textSecondary`.
   final String? subtitle;
@@ -90,7 +96,10 @@ class StudioListRow extends StatelessWidget {
                   ),
               child: Row(
                 children: [
-                  if (icon != null) ...[
+                  if (leading != null) ...[
+                    leading!,
+                    SizedBox(width: StudioSpace.l),
+                  ] else if (icon != null) ...[
                     StudioIcon(icon!, size: 16, color: iconColor),
                     SizedBox(width: StudioSpace.l),
                   ],
