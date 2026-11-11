@@ -1,0 +1,252 @@
+name: Release
+
+# Builds MockMyApp for macOS, Windows, Linux and the web from a version tag and
+# attaches the four archives to a draft GitHub release. Someone then adds the
+# Android APK, reads the draft over and publishes it. The release notes are
+# .github/release-notes.md as it stands at the tag, so update its "What's new"
+# before tagging.
+#
+# The APK is built on the owner's machine rather than here because it has to be
+# signed with the project's own key, and this workflow holds no secrets. An APK
+# signed here would carry the runner's debug key, which is new on every run, and
+# Android refuses to update an app with a copy signed by a different key. Once
+# the draft exists:
+#
+#   flutter build apk --release      # with android/key.properties in place
+#   cp build/app/outputs/flutter-apk/app-release.apk MockMyApp-Android.apk
+#   gh release upload vX.Y.Z MockMyApp-Android.apk
+#
+# The file names carry no version, so a link to
+# https://github.com/imamhossain94/mockmyapp/releases/latest/download/MockMyApp-macOS.zip
+# (or -Windows.zip, -Linux.tar.gz, -Web.zip, -Android.apk) always fetches the
+# newest published release.
+#
+# Run by hand (Actions › Release › Run workflow), it rebuilds the given tag and
+# replaces the files on that tag's draft. With no tag it builds the chosen
+# branch and releases nothing, which tries the builds before a tag is pushed.
+# Either way the archives also stay on the run for a week.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to rebuild, such as v1.0.0. Leave empty to build the branch without releasing.
+        required: false
+        default: ''
+
+# Two runs for one tag would race to create its release.
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+# Only the job that creates the release writes to the repository, and nothing
+# here needs a secret beyond the built-in token.
+permissions:
+  contents: read
+
+env:
+  # Keep in step with ci.yml.
+  FLUTTER_VERSION: 3.44.6
+  # The tag that started the run, the tag asked for by hand, or the branch.
+  SOURCE_REF: ${{ inputs.tag && format('refs/tags/{0}', inputs.tag) || github.ref }}
+
+jobs:
+  # Ubuntu 22.04 rather than ubuntu-latest: a Linux binary needs at least the
+  # glibc and libstdc++ of the system it was built on, so the oldest image
+  # GitHub still offers makes a build that runs on the most distributions.
+  linux:
+    name: Linux
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REF }}
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      # GTK for the runner and the file picker, clipboard and URL plugins.
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build libgtk-3-dev
+      - run: flutter pub get
+      - run: flutter build linux --release
+      # Inside a MockMyApp folder, so extracting it never scatters files; tar
+      # keeps the binary's executable bit.
+      - name: Package
+        run: |
+          cd build/linux/x64/release
+          mv bundle MockMyApp
+          tar -czf "$GITHUB_WORKSPACE/MockMyApp-Linux.tar.gz" MockMyApp
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MockMyApp-Linux
+          path: MockMyApp-Linux.tar.gz
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+  windows:
+    name: Windows
+    runs-on: windows-2025
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REF }}
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      - run: flutter build windows --release
+      # Flutter's build leaves out the Visual C++ runtime, and a Windows that
+      # has never installed it cannot start the app, so these three DLLs go
+      # beside the .exe, as Flutter's guide to shipping a Windows build says.
+      # The runner's System32 holds current 64-bit copies. 7-Zip writes the
+      # forward-slash paths that every unzip tool expects.
+      - name: Package
+        shell: bash
+        run: |
+          cd build/windows/x64/runner
+          cp /c/Windows/System32/{msvcp140,vcruntime140,vcruntime140_1}.dll Release/
+          mv Release MockMyApp
+          7z a -tzip ../../../../MockMyApp-Windows.zip MockMyApp
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MockMyApp-Windows
+          path: MockMyApp-Windows.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+  # `macos-26`, as in ci.yml: FoundationModels needs the macOS 26 SDK.
+  macos:
+    name: macOS
+    runs-on: macos-26
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REF }}
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      - run: flutter build macos --release
+      # Signed ad hoc. Without an Apple Developer ID the app cannot be
+      # notarized, but Apple silicon will not run code with no signature at
+      # all, and a valid one gets the usual "cannot be verified" prompt, which
+      # Privacy & Security can open, instead of "is damaged".
+      #
+      # --preserve-metadata keeps the entitlements Xcode signed with. Signing
+      # again without them would drop the App Sandbox, and with it the
+      # guarantee that the app cannot reach the network, so the job fails if
+      # the sandbox entitlement is missing afterwards.
+      - name: Sign and package
+        run: |
+          app=build/macos/Build/Products/Release/MockMyApp.app
+          codesign --force --deep --sign - --preserve-metadata=entitlements "$app"
+          codesign --verify --deep --strict --verbose=2 "$app"
+          entitlements="$(codesign --display --entitlements - "$app" 2>/dev/null)"
+          echo "$entitlements"
+          if ! grep -q com.apple.security.app-sandbox <<< "$entitlements"; then
+            echo "::error::MockMyApp.app lost its App Sandbox entitlement"
+            exit 1
+          fi
+          lipo -archs "$app/Contents/MacOS/MockMyApp"
+          ditto -c -k --keepParent "$app" MockMyApp-macOS.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MockMyApp-macOS
+          path: MockMyApp-macOS.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+  web:
+    name: Web
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REF }}
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          pub-cache: true
+      - run: flutter pub get
+      # The same command as CI and the README: no defines, no secrets.
+      - run: flutter build web --release
+      # The files sit at the top of the zip, ready for a static host that
+      # takes a zip upload. Flutter's .last_build_id stays out, as it does from
+      # CI's web-build artifact.
+      - name: Package
+        run: |
+          rm -f build/web/.last_build_id
+          cd build/web
+          zip -r -9 -q "$GITHUB_WORKSPACE/MockMyApp-Web.zip" .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MockMyApp-Web
+          path: MockMyApp-Web.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+  release:
+    name: Draft release
+    needs: [linux, windows, macos, web]
+    if: github.event_name == 'push' || inputs.tag != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_REF }}
+      # A tag that disagrees with the pubspec ships an app whose About screen
+      # and Android version name say something else.
+      - name: Check the tag against pubspec.yaml
+        run: |
+          version="$(sed -n 's/^version: *\([^+ ]*\).*/\1/p' pubspec.yaml)"
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::$TAG does not match version $version in pubspec.yaml"
+            exit 1
+          fi
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      # A run by hand for a tag whose draft already exists replaces its files.
+      # A published release is left alone.
+      - name: Create the draft release
+        run: |
+          ls -l dist
+          if draft="$(gh release view "$TAG" --json isDraft --jq .isDraft 2>/dev/null)"; then
+            if [ "$draft" != "true" ]; then
+              echo "::error::$TAG is already published; its files are left as they are"
+              exit 1
+            fi
+            gh release upload "$TAG" dist/* --clobber
+          else
+            gh release create "$TAG" dist/* --draft --verify-tag \
+              --title "MockMyApp ${TAG#v}" --notes-file .github/release-notes.md
+          fi
