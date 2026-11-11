@@ -319,6 +319,8 @@ Map<String, dynamic> frameDesignToJson(FrameDesign d) => {
   // Only for a foldable: every other design is written exactly as before.
   if (d.hinge.enabled) 'hinge': hingeToJson(d.hinge),
   'aspect': d.aspect,
+  // Only for a flat rim: every other design is written exactly as before.
+  if (d.flat) 'flat': true,
 };
 
 FrameDesign frameDesignFromJson(Map<String, dynamic> j) => FrameDesign(
@@ -355,6 +357,7 @@ FrameDesign frameDesignFromJson(Map<String, dynamic> j) => FrameDesign(
       ? const HingeSpec()
       : hingeFromJson(j['hinge'] as Map<String, dynamic>),
   aspect: _d(j['aspect'] ?? 0.4743),
+  flat: j['flat'] == true,
 );
 
 // --- FramePlacement -------------------------------------------------------

@@ -40,6 +40,7 @@ const kBundledFonts = [
     FontWeight.w700,
   ]),
   BundledFamily('Figtree', 'Figtree', [FontWeight.w400, FontWeight.w700]),
+  BundledFamily('Fredoka', 'Fredoka', [FontWeight.w400, FontWeight.w700]),
   BundledFamily('Inter', 'Inter', [
     FontWeight.w400,
     FontWeight.w500,
@@ -51,6 +52,7 @@ const kBundledFonts = [
     FontWeight.w500,
     FontWeight.w700,
   ]),
+  BundledFamily('LilitaOne', 'Lilita One', [FontWeight.w400]),
   BundledFamily('Lobster', 'Lobster', [FontWeight.w400]),
   BundledFamily('Lora', 'Lora', [FontWeight.w400, FontWeight.w700]),
   BundledFamily('Montserrat', 'Montserrat', [FontWeight.w400, FontWeight.w700]),
@@ -59,6 +61,11 @@ const kBundledFonts = [
   BundledFamily('PlayfairDisplay', 'Playfair Display', [
     FontWeight.w400,
     FontWeight.w700,
+  ]),
+  BundledFamily('PlusJakartaSans', 'Plus Jakarta Sans', [
+    FontWeight.w400,
+    FontWeight.w700,
+    FontWeight.w800,
   ]),
   BundledFamily('Poppins', 'Poppins', [FontWeight.w400, FontWeight.w700]),
   BundledFamily('Roboto', 'Roboto', [FontWeight.w400, FontWeight.w700]),

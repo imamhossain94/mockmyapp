@@ -486,6 +486,14 @@ class _Chassis extends CustomPainter {
     final rect = Offset.zero & size;
     if (rect.isEmpty) return;
 
+    // A flat rim is the colour alone: no rail, no display border, no outline.
+    // The screen is laid over the middle of it by the widget above, clipped
+    // to the inner corners, so what shows is an even band of [design.color].
+    if (design.flat) {
+      canvas.drawPath(_shape(rect, outer), Paint()..color = design.color);
+      return;
+    }
+
     // The rail is measured off the *side* inset and drawn uniformly all round,
     // exactly as the artwork does: a phone's metal band is one thickness, and
     // it is the black border behind it that grows at the brow and chin.

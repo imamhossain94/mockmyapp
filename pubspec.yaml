@@ -138,6 +138,9 @@ flutter:
     # beside the files; see `registerBundledFontLicences`.
     - assets/google_fonts/
     - assets/templates/arrowrush/
+    - assets/templates/carstorockets/
+    - assets/templates/gesturevolume/
+    - assets/templates/jellyfloat/
     - assets/templates/sonary/
     - assets/clipart/arrows/
     - assets/clipart/speech/

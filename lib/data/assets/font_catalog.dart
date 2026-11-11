@@ -51,6 +51,7 @@ const fontCatalog = [
   FontEntry('Poppins', FontCategory.sansSerif, popular: true),
   FontEntry('Figtree', FontCategory.sansSerif, popular: true),
   FontEntry('Urbanist', FontCategory.sansSerif),
+  FontEntry('Plus Jakarta Sans', FontCategory.sansSerif),
 
   // ── Serif ───────────────────────────────────────────────────────────────
   FontEntry('Playfair Display', FontCategory.serif, popular: true),
@@ -62,6 +63,8 @@ const fontCatalog = [
   FontEntry('Anton', FontCategory.display, popular: true),
   FontEntry('Abril Fatface', FontCategory.display, popular: true),
   FontEntry('Archivo Black', FontCategory.display),
+  FontEntry('Lilita One', FontCategory.display),
+  FontEntry('Fredoka', FontCategory.display),
 
   // ── Handwriting ─────────────────────────────────────────────────────────
   FontEntry('Dancing Script', FontCategory.handwriting, popular: true),

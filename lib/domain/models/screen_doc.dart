@@ -632,6 +632,7 @@ class FrameDesign {
     ),
     this.hinge = const HingeSpec(),
     this.aspect = 0.4743,
+    this.flat = false,
   });
 
   /// Bezel thickness down the **left and right** edges, as a fraction of frame
@@ -727,6 +728,16 @@ class FrameDesign {
   /// given page percentage.
   final double aspect;
 
+  /// Whether the body is drawn as one flat colour instead of as hardware.
+  ///
+  /// A built frame normally reads as a phone: a lit metal rail, a black
+  /// display border inside it, an outline against the page. Store art often
+  /// wants none of that — a plain white rim round the screen, the way Gesture
+  /// Volume's listing frames its shots — and the rail and border drawn over
+  /// such a rim turned it into a different, heavier mockup. Flat paints
+  /// [color] edge to edge between the outer corners and the screen's.
+  final bool flat;
+
   FrameDesign copyWith({
     double? thickness,
     double? topThickness,
@@ -745,6 +756,7 @@ class FrameDesign {
     SideButtonSpec? volume,
     HingeSpec? hinge,
     double? aspect,
+    bool? flat,
   }) => FrameDesign(
     thickness: thickness ?? this.thickness,
     topThickness: clearTopThickness
@@ -765,6 +777,7 @@ class FrameDesign {
     volume: volume ?? this.volume,
     hinge: hinge ?? this.hinge,
     aspect: aspect ?? this.aspect,
+    flat: flat ?? this.flat,
   );
 }
 

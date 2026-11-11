@@ -17,10 +17,17 @@ hand-written.
   wordmarks, no mascots or character art, no marketing copy, no stock photos of unknown licence,
   no third-party app icons or launcher furniture (paint them out). Headlines are written fresh at
   the published line lengths.
-- Only the author's own apps (`MINE` in `tool/generate_templates.py`: sonary, arrowrush) may ship
-  their real UI, and only what the author owns: a screen whose published pixels show anything
-  else — another person's video, photo, post, face or user name — keeps its layout and is marked
-  `"displayImage": false` in `tool/template_specs.json`, so it wears its sampled tone instead.
+- Only the author's own apps (`MINE` in `tool/generate_templates.py`: sonary, arrowrush,
+  carstorockets, jellyfloat, gesturevolume — all New Age Devs apps) may ship their real UI, and
+  only what the author owns: a screen whose published pixels show anything else — another
+  person's video, photo, post, face or user name, another company's name or logo — keeps its
+  layout and is marked `"displayImage": false` in `tool/template_specs.json`, so it wears its
+  sampled tone, or `"displayFrom": "ui"` with a clean capture of the app's own UI (see step 2).
+- Check the art's licence before any of it ships in this MIT repo: the app's credits, licence
+  files and asset folders. Art drawn in the app's own code, OFL fonts and Apache-2.0 icons are
+  fine; an asset pack that forbids redistribution outside the app is not.
+- No old trademark-risky names in any copy or pixel: the games were renamed (Feast Mode, Peak
+  Traffic, the worlds City Streets … Ski Slopes, Jelly Float) and a template follows.
 - Other people's listings are layout, palette and mockup only (`OTHERS`, currently empty): no
   `displayImages`; app screens are redrawn by `tool/generate_template_displays.py` archetypes.
 - Never scrape or clone another screenshot tool's template **library**: take only the organising
@@ -34,9 +41,20 @@ hand-written.
    `textTopPct`/`textBottomPct`, `hasDevice`, `deviceTopPct`, `deviceWidthPct`,
    `deviceOffsetXPct`, `deviceRotationDeg`. Positions are page fractions of the published page
    (1080×1920 for Play); taller pages pre-scale heights as `generate_templates.py` explains.
+   Also: `captionStroke` (candy-lettering outline), `captionFitBottomPct` (a band's foot, where
+   a device-less headline must stop), `captionRuns` (a title over a smaller line), and a frame's
+   `flat` (a plain rim, no rail or black border). Decorations that must stay together (a band,
+   its rim, its rays) share one box: a decoration's height is in page widths and its centre in
+   page heights, so stacked shapes with boxes of their own drift apart on a taller page.
 2. **Display artwork** — own apps: `python3 tool/extract_template_displays.py <slug>` crops the UI
    out of the published screenshots (fetched, not vendored) into `assets/templates/<slug>/NN.webp`,
-   using the crop the catalog's own frame implies. Others: `python3 tool/generate_template_displays.py`
+   using the crop the catalog's own frame implies. `--from <folder>` reads the uploaded files
+   from the app's own repo instead (each screen's `file`); `--only 2,3` redoes just those
+   screens; `--ui 02=<png>` gives a `"displayFrom": "ui"` screen a capture of the app alone,
+   laid into the aperture and cut where the published page would have cut it (`uiTopPct` sets
+   it below a status bar). An edge-to-edge screen (`"hasDevice": false, "cover": false`: the
+   app's screen fills the page under a band, as the games publish) is the whole page, less the
+   opaque `decor` the catalog draws over it, whose shadow is taken back out. Others: `python3 tool/generate_template_displays.py`
    draws original screens (needs the network on a cold cache for pinned Unsplash photos via
    `tool/photo_sources.json` and Roboto, cached under `build/`).
 3. **Compile** — `python3 tool/generate_templates.py` (run last) rewrites

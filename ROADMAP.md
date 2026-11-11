@@ -91,6 +91,17 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done ·
 - [x] Settings › About shows the source code's address, https://github.com/imamhossain94/mockmyapp,
       and copies it on a tap (2026-11-11).
 
+## Since v1.0.0 — for the next release
+
+- [x] The template gallery shows the studio's own apps, each measured off its own published Play
+      screenshots (2026-11-11): Cars to Rockets and Jelly Float, eight screens each, the game edge
+      to edge under its band; Gesture Volume, four screens in its flat white rim; and Sonary's
+      four flat screens now wear clean captures of the app's own UI. Hungry Fish is not a
+      template: its listing is landscape with no phone, and the gallery's sets are portrait.
+- [ ] **[Owner]** Look the new templates over on a real set: the web editor's Android set shows
+      them exactly as published; on the 6.9-inch iPhone page the two games' artwork loses about
+      9% at each side, and every phone listing sits lower until captures are in.
+
 ## R2 — Checks only a device can make
 
 - [ ] **[Mac]** In the running apps: on the Mac, Import a backup and export a PNG set (it lands in

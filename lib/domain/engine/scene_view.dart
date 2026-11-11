@@ -1892,7 +1892,35 @@ class _FrameLayer extends StatelessWidget {
             // A solid casts its shadow from its whole silhouette, behind its
             // sides; this one is painted in the plane of the face and would
             // land on top of them.
-            if (placement.shadow != null && solid == null)
+            // A flat rim is all body and no bezel, so its shadow is cast from
+            // the body's own outline: cast from the screen's square box, its
+            // corners stood out past the rim's round ones.
+            if (placement.shadow != null &&
+                solid == null &&
+                design != null &&
+                design.flat &&
+                !placement.frameHidden)
+              Positioned.fill(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: design.outerRadii(frameWidth),
+                    boxShadow: [
+                      BoxShadow(
+                        color: placement.shadow!.color.withValues(
+                          alpha: placement.shadow!.opacity,
+                        ),
+                        blurRadius:
+                            placement.shadow!.blur * (canvasSize.width / 1179),
+                        offset: Offset(
+                          placement.shadow!.offsetPct.dx * frameWidth,
+                          placement.shadow!.offsetPct.dy * frameHeight,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            else if (placement.shadow != null && solid == null)
               Positioned(
                 left: rect.x * frameWidth,
                 top: rect.y * frameHeight,

@@ -144,4 +144,42 @@ void main() {
       reason: 'outer edge $outer should be lit against the groove $groove',
     );
   });
+
+  testWidgets('a flat rim is its colour edge to edge, with no hardware', (
+    tester,
+  ) async {
+    // Store art that frames its shots in a plain white rim — Gesture Volume's
+    // listing does — has no rail, no display border and no outline, and the
+    // hardware drawn over such a rim made it a different, heavier mockup.
+    // Sides of 0.06 x 400 = 24px: on a phone x=18 is the black border.
+    const design = FrameDesign(
+      thickness: 0.06,
+      cornerRadius: 0.08,
+      color: white,
+      aspect: 0.5,
+      flat: true,
+    );
+
+    final image = await render(tester, design);
+    late List<int> edge;
+    late List<int> inner;
+    late List<int> bottom;
+    late List<int> screen;
+    await tester.runAsync(() async {
+      edge = await pixel(image, 1, 400);
+      inner = await pixel(image, 18, 400);
+      bottom = await pixel(image, 200, 790);
+      screen = await pixel(image, 200, 400);
+      image.dispose();
+    });
+
+    for (final (name, rgb) in [
+      ('outer edge', edge),
+      ('where the border would be', inner),
+      ('the foot, where the finish would shade', bottom),
+    ]) {
+      expect(rgb, [255, 255, 255], reason: '$name should be the rim colour');
+    }
+    expect(screen[2], greaterThan(screen[0]), reason: 'blue screenshot');
+  });
 }

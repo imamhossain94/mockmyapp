@@ -2,6 +2,30 @@
 
 Newest first. One short entry per working session — what landed, what's next.
 
+## 2026-11-11 — The studio's own apps in the template gallery
+
+- **New templates**, each measured off the app's own published Play screenshots and checked
+  against them in full-resolution offline renders: Cars to Rockets (8 screens) and Jelly Float
+  (8), the game edge to edge under a band that is the template's own decoration (curved and
+  sunlit; wavy, white-rimmed, with its rays and its seeded bubbles), headlines in Lilita One and
+  Fredoka; Gesture Volume (4) in Plus Jakarta Sans over its lavender glows, the phone in a flat
+  white rim. Sonary's four screens that showed other people's videos and posts now wear clean
+  captures of Sonary's own UI.
+- **Left out:** Gesture Volume's screens 1 and 3 (a magnifier window, a phone on its side with a
+  card), 5 (search chips naming other companies' sites) and 8 (system package names); Hungry
+  Fish (a landscape listing with no phone). Cars to Rockets' "tricky jams!" is "tricky levels!".
+  Every game's art is drawn in its own code (credits checked); fonts are OFL.
+- **Pipeline:** `extract_template_displays.py` reads a listing from the app's repo (`--from`),
+  redoes single screens (`--only`), takes UI captures (`--ui`), and cuts edge-to-edge pages by
+  taking out the band the catalog draws over them, shadow and all. New spec keys:
+  `captionStroke`, `captionFitBottomPct`, `captionRuns` with sizes, a frame's `flat`. Three
+  families bundled (`bundle_google_fonts.py --weights` for Plus Jakarta Sans' 800).
+- **Engine:** `FrameDesign.flat` (a plain rim; written to documents only when set) and its
+  shadow follows the rim's round corners; `TemplateScreen.measured` carries a caption outline and
+  a band's foot as the fit box.
+- **Sonary's captures** come from its repo's `RENDER_PREVIEWS=1 flutter test
+  test/screenshot_preview_test.dart` (`build/preview/*_phone_dark.png`).
+
 ## 2026-11-11 — Version 1.0.0 on GitHub
 
 - **CI is green on all six platforms** in the public repository. The two text-contrast tests now

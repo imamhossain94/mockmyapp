@@ -17,10 +17,10 @@ and then one generator turns that into Dart.
 
 | Script | What it does |
 |---|---|
-| `template_specs.json` | The spec file every template script reads and writes. Two listings, Sonary and Arrow Rush, screens only: templates carry no feature graphic (retired 2026-09-30, with Gesture Volume and the scripts that wrote them). Couple Widgets, Media Saver and Smart Route BD were retired on 2026-11-10 because their screens showed other people's faces, posts and photographs; a screen marked `"displayImage": false` keeps its layout without its published pixels for the same reason. |
+| `template_specs.json` | The spec file every template script reads and writes. Five listings, all New Age Devs apps measured off their own Play screenshots: Sonary, Arrow Rush, Cars to Rockets, Jelly Float and Gesture Volume, screens only (templates carry no feature graphic since 2026-09-30). Couple Widgets, Media Saver and Smart Route BD were retired on 2026-11-10 because their screens showed other people's faces, posts and photographs; a screen marked `"displayImage": false` keeps its layout without its published pixels for the same reason, and one marked `"displayFrom": "ui"` takes a clean capture of the app's own UI instead (Sonary's screens 2, 3, 4 and 6). The two games are edge to edge (`"hasDevice": false, "cover": false`): the game fills the page under a band, which is the screen's `decor`. Hungry Fish is not here: its listing is landscape (1920 × 1080) with no phone, and the gallery's sets are portrait. |
 | `generate_templates.py` | **specs → `lib/data/assets/template_catalog.dart`.** Run this last, then `dart format` the output. |
 | `generate_template_displays.py` | Draws the app UI behind each bezel for listings whose screens are not the author's to ship. |
-| `extract_template_displays.py` | Cuts a listing's real UI out of its published screenshots, for the ones that are. |
+| `extract_template_displays.py` | Cuts a listing's real UI out of its published screenshots, for the ones that are. `--from <folder>` reads the uploaded files from the app's own repo (Cars to Rockets: `docs/store/google_play/screenshots` in the game; Gesture Volume: `store/graphics/screenshots/bleed`); `--only` redoes some screens; `--ui NN=<png>` gives a `"displayFrom": "ui"` screen its capture. An edge-to-edge page loses what the catalog draws over it (its band), shadow and all. |
 | `measured_banners.py` | Composes a banner for a listing that has none of its own. **Its table is empty** — every listing left has a real one. |
 | `original_templates.py` | The layout, cover and banner vocabulary `measured_banners.py` composes from. **Its four template lists are empty**: the twenty-four original designs were retired. |
 
@@ -56,7 +56,8 @@ and then one generator turns that into Dart.
 ## Things worth knowing before a re-run
 
 - **These scripts may go online; the app never does.** `bundle_google_fonts.py`
-  downloads from fonts.gstatic.com and GitHub, on your machine, once.
+  downloads from fonts.gstatic.com and GitHub, on your machine, once. On a Mac with
+  python.org's Python, `SSL_CERT_FILE=/etc/ssl/cert.pem` gives it the system's certificates.
 - **`generate_template_displays.py` needs the network** on a cold cache — it
   fetches photographs through Lorem Picsum (pinned in `photo_sources.json`) and
   Roboto from Google Fonts, into `build/`. Its `PLAN` is empty today: every

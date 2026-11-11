@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockmyapp/data/assets/frame_catalog.dart';
 import 'package:mockmyapp/data/assets/studio_frames.dart';
@@ -353,6 +356,23 @@ void main() {
         );
       },
     );
+
+    test('a flat rim survives a save; a design without one is unchanged', () {
+      const rim = FrameDesign(color: Color(0xFFFFFFFF), flat: true);
+      expect(frameDesignFromJson(frameDesignToJson(rim)).flat, isTrue);
+
+      // Written only when set, and read back as hardware when absent, so
+      // every document saved before the field existed round-trips byte for
+      // byte and draws exactly as it did.
+      final plain = frameDesignToJson(const FrameDesign());
+      expect(plain.containsKey('flat'), isFalse);
+      expect(frameDesignFromJson(plain).flat, isFalse);
+      final encoded = jsonEncode(plain);
+      expect(
+        jsonEncode(frameDesignToJson(frameDesignFromJson(jsonDecode(encoded)))),
+        encoded,
+      );
+    });
 
     test('turned in 3D, the shut body keeps its square spine and top keys', () {
       final device = byId(StudioFrameIds.iphoneDuoCover);

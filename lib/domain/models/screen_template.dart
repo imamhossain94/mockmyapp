@@ -337,6 +337,15 @@ class TemplateScreen {
     required double textTopPct,
     double? textBottomPct,
 
+    /// The lowest a headline set above may reach before it is set smaller, as
+    /// a fraction of page height, on a screen with no device under it to say
+    /// so: the foot of the band an edge-to-edge listing sets its words on.
+    ///
+    /// Somebody's longer words wrapped past the band and onto the game below
+    /// it, where they were neither on the band nor legible. Null leaves a
+    /// device-less headline to set at its own size, as it always has.
+    double? fitBottomPct,
+
     /// Whether a device is drawn at all. False is a full-bleed screen: the
     /// user's screenshot fills the page with no bezel around it.
     bool hasDevice = true,
@@ -404,6 +413,15 @@ class TemplateScreen {
     double textShadowOffsetY = 0,
     Color textShadowColor = const Color(0x66000000),
 
+    /// An outline drawn under the headline's fill, in the same design-px
+    /// units as [textShadowBlur]. Zero is none.
+    ///
+    /// Game listings set their headlines in candy lettering — a thick dark
+    /// outline round a light fill — and the same words set flat over a busy
+    /// game scene read as a different listing, and a less legible one.
+    double textStrokeWidth = 0,
+    Color textStrokeColor = const Color(0xFF000000),
+
     /// The other handsets on the page, measured like this one.
     List<TemplateDevice> extraDevices = const [],
 
@@ -441,6 +459,12 @@ class TemplateScreen {
         deviceTop - _kCaptionDeviceGap - textTopPct,
         _ownHeightPct(text, sizePct, lineRatio, lines, runs),
       );
+    } else if (captionAbove && fitBottomPct != null && !landscape) {
+      // The same rule with the band's foot standing in for the device's top.
+      fitHeightPct = math.max(
+        fitBottomPct - textTopPct,
+        _ownHeightPct(text, sizePct, lineRatio, lines, runs),
+      );
     }
 
     return TemplateScreen(
@@ -468,6 +492,8 @@ class TemplateScreen {
         shadowBlur: textShadowBlur,
         shadowOffsetY: textShadowOffsetY,
         shadowColor: textShadowColor,
+        strokeWidth: textStrokeWidth,
+        strokeColor: textStrokeColor,
         fitHeightPct: fitHeightPct,
       ),
       shadow: shadow,

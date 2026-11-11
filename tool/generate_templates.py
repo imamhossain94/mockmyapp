@@ -5,8 +5,9 @@ _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(_ROOT, 'lib', 'data', 'assets', 'template_catalog.dart')
 
 # The user's own listings first — they are theirs, and they are the ones whose
-# look they are most likely to want to carry to the next app.
-MINE = ['sonary', 'arrowrush']
+# look they are most likely to want to carry to the next app. Every one of
+# them is a New Age Devs app, so every one ships its real UI.
+MINE = ['sonary', 'arrowrush', 'carstorockets', 'jellyfloat', 'gesturevolume']
 # Third-party listings are reproduced as *layout, palette and mockup only*:
 # no `displayImages`, so their app UI is never shipped, and no logo, photo or
 # character artwork is transcribed — stickers become the app's own shapes.
@@ -178,6 +179,9 @@ def measured_frame(spec):
         parts.append(f'punchHole: PunchHoleSpec(\n            {joined},\n          )')
     for key in ('power', 'volume'):
         parts.append(f'{key}: {side_button(spec.get(key))}')
+    # A plain rim round the screen rather than a phone's hardware.
+    if spec.get('flat'):
+        parts.append('flat: true')
     body = (',\n          ').join(parts)
     return f'FrameDesign(\n          {body},\n        )'
 
@@ -251,10 +255,26 @@ def display(spec, sc, index):
                 sc.get('displayEnd'))
 
 
+def edge_to_edge(sc):
+    """Whether this screen is the app's screen filling the page, bezel-less.
+
+    A device-less screen is a composed cover unless the spec says `"cover":
+    false` outright — the same inference `TemplateScreen.isCover` makes, and
+    for the same reason: a page drawn over its own artwork is a screenshot
+    under a band, not a cover, and only the listing can say which it is.
+    """
+    return not sc.get('hasDevice', True) and sc.get('cover') is False
+
+
 def shows_artwork(spec, sc):
-    """Whether this screen's display is the listing's own published artwork."""
-    return bool(spec.get('displayImages') and sc.get('hasDevice', True)
-                and sc.get('displayImage', True))
+    """Whether this screen's display is the listing's own published artwork.
+
+    A phone's display, or the whole page where the app's screen fills it edge
+    to edge: the studio's games publish theirs that way, the game under a band
+    with the headline on it, and a cover carries no screenshot at all.
+    """
+    return bool(spec.get('displayImages') and sc.get('displayImage', True)
+                and (sc.get('hasDevice', True) or edge_to_edge(sc)))
 
 
 def display_tone(spec, sc):
@@ -450,7 +470,10 @@ def screen(spec, sc, index, frame_style):
         f"        background: const {bg},",
         f"        display: const {display(spec, sc, index)},",
     ]
-    if has:
+    # A page the app's screen fills carries its picture on the same terms as a
+    # phone's display: a tone for a set with words of its own, and how far down
+    # the picture is real.
+    if has or edge_to_edge(sc):
         tone = display_tone(spec, sc)
         if tone:
             lines.append(f"        displayTone: const {tone},")
@@ -530,8 +553,17 @@ def screen(spec, sc, index, frame_style):
         lines.append(f"        textShadowOffsetY: {num(sh.get('offsetY'))},")
         if sh.get('color'):
             lines.append(f"        textShadowColor: const {color(sh['color'])},")
+    # Candy lettering: an outline under the fill, in the caption's design px.
+    if sc.get('captionStroke'):
+        st = sc['captionStroke']
+        lines.append(f"        textStrokeWidth: {num(st.get('width'))},")
+        if st.get('color'):
+            lines.append(f"        textStrokeColor: const {color(st['color'])},")
     lines.append(f"        textTopPct: {num(sc.get('textTopPct'), 0.06)},")
     lines.append(f"        textBottomPct: {num(sc.get('textBottomPct'), 0.16)},")
+    # Where a headline with no device under it must stop: a band's foot.
+    if 'captionFitBottomPct' in sc:
+        lines.append(f"        fitBottomPct: {num(sc['captionFitBottomPct'])},")
     if has:
         lines.append(f"        deviceTopPct: {num(sc.get('deviceTopPct'), 0.24)},")
         # The specs were measured as a share of page HEIGHT on a 9:16 page.

@@ -14,6 +14,7 @@ final _fileWeight = {
   FontWeight.w500: 'Medium',
   FontWeight.w600: 'SemiBold',
   FontWeight.w700: 'Bold',
+  FontWeight.w800: 'ExtraBold',
 };
 
 void main() {

@@ -8,6 +8,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -117,14 +118,18 @@ RenderParagraph _paragraph(WidgetTester tester, String text) =>
 
 /// The size [text] is set at: the caption's own span, which `Text.rich` wraps
 /// in one carrying the ambient style.
+///
+/// The first paragraph saying it: an outlined caption paints its words twice,
+/// the outline under the fill, and both at the one size.
 double _fontSizeOf(WidgetTester tester, String text) {
   final root =
       tester
-              .widget<RichText>(
+              .widgetList<RichText>(
                 find.byWidgetPredicate(
                   (w) => w is RichText && w.text.toPlainText() == text,
                 ),
               )
+              .first
               .text
           as TextSpan;
   return (root.children!.first as TextSpan).style!.fontSize!;
@@ -263,24 +268,31 @@ void main() {
     test('an iPhone set gets the device and placement its preview showed', () {
       // The catalog is all Android listings. On an iPhone set the gallery
       // drew the listing's punch-hole slab while applying kept the iPhone,
-      // sized for the slab's proportions.
+      // sized for the slab's proportions. Judged on each listing's first
+      // screen that places a phone: an edge-to-edge screen has no slab to
+      // withhold, and has its own test below.
+      var phones = 0;
       for (final t in screenTemplates) {
+        final i = t.screens.indexWhere((s) => !s.fullBleed);
+        if (i < 0) continue;
+        phones++;
         final set = newSet(
           StoreTargets.iphone,
           t,
           device: 'apple-iphone-16',
           variant: '16---ultramarine',
         );
-        final sample = set.screens.first;
+        final sample = set.screens[i];
         final preview = t.applyTo(
           sample,
+          index: i,
           withCopy: true,
           withDisplay: true,
           withFrame: templateWearsFrame(StoreTargets.iphone, t),
           catalog: catalog,
         );
         store.applyTemplate(set.projectId, set.subId, t, withCopy: true);
-        final applied = screensOf(set.projectId, set.subId).first;
+        final applied = screensOf(set.projectId, set.subId)[i];
 
         final a = preview.frames.first;
         final b = applied.frames.first;
@@ -296,6 +308,63 @@ void main() {
           reason: t.id,
         );
       }
+      expect(phones, greaterThan(0), reason: 'no listing places a phone');
+    });
+
+    test('an edge-to-edge screen fills the page on any set, as previewed', () {
+      // The studio's games publish the game filling the picture under a band.
+      // There is no handset to keep or withhold: the app's screen is the page,
+      // on an iPhone set exactly as on an Android one, and the listing's
+      // picture of its game fills it until a capture covers it.
+      var pages = 0;
+      for (final t in screenTemplates) {
+        for (final (i, screen) in t.screens.indexed) {
+          if (!screen.fullBleed || screen.isCover) continue;
+          pages++;
+          for (final (target, device, variant) in [
+            (StoreTargets.iphone, 'apple-iphone-16', '16---ultramarine'),
+            (
+              StoreTargets.androidPhone,
+              'samsung-galaxy-note-10-plus',
+              'aura-black',
+            ),
+          ]) {
+            final set = newSet(target, t, device: device, variant: variant);
+            final preview = t.applyTo(
+              set.screens[i],
+              index: i,
+              withCopy: true,
+              withDisplay: true,
+              withFrame: templateWearsFrame(target, t),
+              catalog: catalog,
+            );
+            store.applyTemplate(set.projectId, set.subId, t, withCopy: true);
+            final applied = screensOf(set.projectId, set.subId)[i];
+            final canvas = applied.canvas;
+            for (final placement in [
+              preview.frames.first,
+              applied.frames.first,
+            ]) {
+              final where = '${t.id}[$i] on ${target.id}';
+              expect(placement.hidden, isFalse, reason: where);
+              expect(placement.frameHidden, isTrue, reason: where);
+              expect(placement.design!.thickness, 0, reason: where);
+              expect(
+                placement.design!.aspect,
+                closeTo(canvas.width / canvas.height, 1e-9),
+                reason: where,
+              );
+              expect(placement.transform.pagePercentage, 1, reason: where);
+              expect(
+                placement.screenshot.fill,
+                same(screen.display),
+                reason: where,
+              );
+            }
+          }
+        }
+      }
+      expect(pages, greaterThan(0), reason: 'no listing is edge to edge');
     });
 
     test('an Android set wears the listing’s drawn handset, both ways', () {
@@ -738,6 +807,40 @@ void main() {
       expect(measured(landscape: true).caption.fitHeightPct, isNull);
     });
 
+    test('is the room down to a band’s foot, where the listing says so', () {
+      // An edge-to-edge listing sets its words on a band over the game, and
+      // somebody's longer words used to wrap off the band onto the game.
+      TemplateScreen banded({double fitBottomPct = 0.17}) =>
+          TemplateScreen.measured(
+            background: const SolidBackground(Color(0xFF000000)),
+            display: const SolidBackground(Color(0xFF111111)),
+            text: 'One',
+            textColor: const Color(0xFFFFFFFF),
+            sizePct: 0.05,
+            lineRatio: 1.1,
+            textTopPct: 0.03,
+            hasDevice: false,
+            cover: false,
+            fitBottomPct: fitBottomPct,
+          );
+      expect(banded().caption.fitHeightPct, closeTo(0.17 - 0.03, 1e-9));
+      // Never smaller than the listing's own words take.
+      final own = 0.05 * 1.1 * 1080 / 1920;
+      expect(
+        banded(fitBottomPct: 0.04).caption.fitHeightPct,
+        closeTo(own, 1e-9),
+      );
+    });
+
+    test('a band listing keeps its own words inside its band', () {
+      for (final t in screenTemplates) {
+        for (final (i, s) in t.screens.indexed) {
+          if (!s.fullBleed || s.isCover) continue;
+          expect(s.caption.fitHeightPct, isNotNull, reason: '${t.id}[$i]');
+        }
+      }
+    });
+
     test('is saved only when set, and old captions read back without it', () {
       const plain = CaptionSpec(text: 'x');
       expect(captionToJson(plain).containsKey('fitHeightPct'), isFalse);
@@ -1003,6 +1106,119 @@ void main() {
           isTrue,
         );
       }
+    });
+  });
+
+  group('candy lettering', () {
+    final outlined = TemplateScreen.measured(
+      background: const SolidBackground(Color(0xFF000000)),
+      display: const SolidBackground(Color(0xFF111111)),
+      text: 'Chain giant\ncombos!',
+      textColor: const Color(0xFFFFFFFF),
+      sizePct: 0.09,
+      textTopPct: 0.03,
+      textStrokeWidth: 21.5,
+      textStrokeColor: const Color(0xFF5B2A9E),
+    );
+
+    test('is the listing’s outline, and somebody’s own words wear it too', () {
+      expect(outlined.caption.strokeWidth, 21.5);
+      expect(outlined.caption.strokeColor, const Color(0xFF5B2A9E));
+      final own = outlined.applyTo(_iphoneDoc());
+      expect(own.caption!.text, 'My own words');
+      expect(own.caption!.strokeWidth, 21.5);
+      expect(own.caption!.strokeColor, const Color(0xFF5B2A9E));
+    });
+
+    test('is how the outlined listings set every screen', () {
+      final jelly = _byId('jellyfloat');
+      for (final (i, s) in jelly.screens.indexed) {
+        expect(s.caption.strokeWidth, greaterThan(0), reason: 'jellyfloat[$i]');
+      }
+    });
+  });
+
+  group('a flat rim', () {
+    testWidgets('casts its shadow from its round corners, not the screen’s '
+        'square ones', (tester) async {
+      // A crisp red shadow straight under the device: wherever it shows past
+      // the rim, it was cast from the wrong outline. The point sampled is
+      // just inside the screen's square corner and outside the rim's round
+      // one — 12px in from the body's corner, where a 84px radius has left
+      // the body and an 8.4px rim has not reached the screen.
+      const canvas = Size(600, 1200);
+      final doc = ScreenDoc(
+        id: 'rim',
+        canvas: canvas,
+        background: const SolidBackground(Color(0xFFFFFFFF)),
+        caption: const CaptionSpec(text: '', enabled: false),
+        frames: const [
+          FramePlacement(
+            deviceId: 'samsung-galaxy-note-10-plus',
+            variantId: 'aura-black',
+            transform: Transform2D(pagePercentage: 0.7),
+            shadow: ShadowSpec(
+              opacity: 1,
+              color: Color(0xFFFF0000),
+              blur: 0,
+              offsetPct: Offset.zero,
+            ),
+            design: FrameDesign(
+              thickness: 0.02,
+              cornerRadius: 0.2,
+              color: Color(0xFFFFFFFF),
+              aspect: 0.5,
+              flat: true,
+              punchHole: PunchHoleSpec(enabled: false),
+              power: SideButtonSpec(enabled: false),
+              volume: SideButtonSpec(enabled: false),
+            ),
+          ),
+        ],
+      );
+      final key = GlobalKey();
+      tester.view
+        ..devicePixelRatio = 1
+        ..physicalSize = canvas;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(
+        Directionality(
+          textDirection: TextDirection.ltr,
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: RepaintBoundary(
+              key: key,
+              child: SizedBox.fromSize(
+                size: canvas,
+                child: SceneView(doc: doc, catalog: catalog, forExport: true),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      late List<int> corner;
+      late List<int> past;
+      await tester.runAsync(() async {
+        final boundary =
+            key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+        final image = await boundary.toImage();
+        final data = await image.toByteData(format: ui.ImageByteFormat.rawRgba);
+        final bytes = data!.buffer.asUint8List();
+        List<int> at(int x, int y) {
+          final i = (y * image.width + x) * 4;
+          return [bytes[i], bytes[i + 1], bytes[i + 2]];
+        }
+
+        // The device is 840 x 420, centred: its corner is at (90, 180).
+        corner = at(90 + 12, 180 + 12);
+        past = at(90 + 210, 180 + 840 + 6);
+        image.dispose();
+      });
+      expect(corner, [255, 255, 255], reason: 'shadow past the round corner');
+      // Nor anywhere else: a shadow with no blur and no offset is the body's
+      // own outline, wholly under it.
+      expect(past, [255, 255, 255], reason: 'shadow past the foot');
     });
   });
 

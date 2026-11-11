@@ -6,15 +6,18 @@ The app never downloads a font at run time (`allowRuntimeFetching` is off in
 This writes the files google_fonts looks for in the asset manifest:
 
     python3 tool/bundle_google_fonts.py "Playfair Display" "Bebas Neue"
+    python3 tool/bundle_google_fonts.py --weights 400,700,800 "Plus Jakarta Sans"
 
 For each family it reads the google_fonts package (the version pinned in
 pubspec.lock, from the pub cache) for the family's Regular (400) and Bold (700)
 files, downloads them from fonts.gstatic.com, checks each against the SHA-256
 and length the package itself expects, and writes them as
 `<Family>-Regular.ttf` and `<Family>-Bold.ttf`, the names google_fonts matches.
-A family with no Bold gets its Regular alone. The family's licence comes from
-github.com/google/fonts and is written beside them as `<Family>-OFL.txt`; only
-SIL Open Font License families are accepted.
+A family with no Bold gets its Regular alone. `--weights` asks for other cuts
+as well — a template headline set at 800 needs the family's ExtraBold, which
+the Bold standing in for would set visibly thinner. The family's licence comes
+from github.com/google/fonts and is written beside them as `<Family>-OFL.txt`;
+only SIL Open Font License families are accepted.
 
 This is the only part of the project that goes online, and it runs on a
 developer's machine, never in the app. Afterwards, add the family to
@@ -35,7 +38,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "google_fonts"
 
-# The variants bundled for every family: google_fonts' own file name for each.
+# google_fonts' own file name for each upright weight it can match.
+NAMES = {
+    400: "Regular",
+    500: "Medium",
+    600: "SemiBold",
+    700: "Bold",
+    800: "ExtraBold",
+    900: "Black",
+}
+
+# The variants bundled for every family unless `--weights` says otherwise.
 WANTED = {(400, "normal"): "Regular", (700, "normal"): "Bold"}
 
 
@@ -88,9 +101,9 @@ def download(url: str) -> bytes:
         return response.read()
 
 
-def bundle(source: Path, family: str) -> None:
+def bundle(source: Path, family: str, wanted: dict) -> None:
     prefix, files = family_files(source, family)
-    chosen = {name: files[key] for key, name in WANTED.items() if key in files}
+    chosen = {name: files[key] for key, name in wanted.items() if key in files}
     if "Regular" not in chosen:
         sys.exit(f"{family} has no Regular (400) face to bundle")
     for name, (digest, length) in chosen.items():
@@ -110,13 +123,22 @@ def bundle(source: Path, family: str) -> None:
 
 
 def main() -> None:
-    families = sys.argv[1:]
+    args = sys.argv[1:]
+    wanted = WANTED
+    if args[:1] == ["--weights"] and len(args) > 1:
+        weights = [int(w) for w in args[1].split(",")]
+        unknown = [w for w in weights if w not in NAMES]
+        if unknown:
+            sys.exit(f"no google_fonts file name for weight {unknown[0]}")
+        wanted = {(w, "normal"): NAMES[w] for w in weights}
+        args = args[2:]
+    families = args
     if not families:
         sys.exit(__doc__)
     source = google_fonts_source()
     for family in families:
         print(family)
-        bundle(source, family)
+        bundle(source, family, wanted)
 
 
 if __name__ == "__main__":
